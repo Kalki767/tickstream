@@ -1,0 +1,106 @@
+recording 900s of live trades to bench/data/live_capture.jsonl
+[2026-10-03 20:40:32.681] [info] recording raw messages to bench/data/live_capture.jsonl
+[2026-10-03 20:40:32.742] [info] connecting to stream.binance.com:9443/stream?streams=btcusdt@trade/ethusdt@trade/solusdt@trade/bnbusdt@trade
+[2026-10-03 20:40:34.167] [info] connected
+[2026-10-03 20:40:42.742] [info] stats: 45.2 trades/s [ BNBUSDT=9.9 BTCUSDT=21.7 ETHUSDT=8.8 SOLUSDT=4.8 ] total=452 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:40:52.743] [info] stats: 17.5 trades/s [ BNBUSDT=6.3 BTCUSDT=7.6 ETHUSDT=0.5 SOLUSDT=3.1 ] total=627 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:41:02.743] [info] stats: 19.6 trades/s [ BNBUSDT=5.2 BTCUSDT=3.3 ETHUSDT=0.7 SOLUSDT=10.4 ] total=823 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:41:12.743] [info] stats: 12.1 trades/s [ BNBUSDT=3.1 BTCUSDT=4.0 ETHUSDT=2.7 SOLUSDT=2.3 ] total=944 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:41:22.744] [info] stats: 35.3 trades/s [ BNBUSDT=2.7 BTCUSDT=19.7 ETHUSDT=8.9 SOLUSDT=4.0 ] total=1297 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:41:32.744] [info] stats: 38.3 trades/s [ BNBUSDT=11.1 BTCUSDT=6.7 ETHUSDT=9.8 SOLUSDT=10.7 ] total=1680 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:41:42.744] [info] stats: 58.6 trades/s [ BNBUSDT=22.5 BTCUSDT=27.1 ETHUSDT=6.2 SOLUSDT=2.8 ] total=2266 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:41:52.744] [info] stats: 37.3 trades/s [ BNBUSDT=2.5 BTCUSDT=2.5 ETHUSDT=4.2 SOLUSDT=28.1 ] total=2639 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:42:02.744] [info] stats: 14.3 trades/s [ BNBUSDT=7.1 BTCUSDT=1.8 ETHUSDT=0.5 SOLUSDT=4.9 ] total=2782 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:42:12.745] [info] stats: 26.2 trades/s [ BNBUSDT=17.0 BTCUSDT=3.4 ETHUSDT=0.5 SOLUSDT=5.3 ] total=3044 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:42:22.747] [info] stats: 16.3 trades/s [ BNBUSDT=7.0 BTCUSDT=3.1 ETHUSDT=4.0 SOLUSDT=2.2 ] total=3207 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:42:32.747] [info] stats: 6.6 trades/s [ BNBUSDT=1.6 BTCUSDT=2.7 ETHUSDT=1.4 SOLUSDT=0.9 ] total=3273 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:42:42.747] [info] stats: 35.5 trades/s [ BNBUSDT=2.9 BTCUSDT=22.4 ETHUSDT=7.3 SOLUSDT=2.9 ] total=3628 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:42:52.747] [info] stats: 21.7 trades/s [ BNBUSDT=4.0 BTCUSDT=12.0 ETHUSDT=2.6 SOLUSDT=3.1 ] total=3845 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:43:02.748] [info] stats: 32.0 trades/s [ BNBUSDT=4.2 BTCUSDT=10.6 ETHUSDT=9.1 SOLUSDT=8.1 ] total=4165 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:43:12.748] [info] stats: 51.9 trades/s [ BNBUSDT=17.5 BTCUSDT=1.5 ETHUSDT=31.2 SOLUSDT=1.7 ] total=4684 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:43:22.749] [info] stats: 26.2 trades/s [ BNBUSDT=2.1 BTCUSDT=1.6 ETHUSDT=22.1 SOLUSDT=0.4 ] total=4946 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:43:32.749] [info] stats: 6.1 trades/s [ BNBUSDT=1.6 BTCUSDT=1.8 ETHUSDT=2.0 SOLUSDT=0.7 ] total=5007 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:43:42.749] [info] stats: 6.6 trades/s [ BNBUSDT=3.7 BTCUSDT=2.0 ETHUSDT=0.4 SOLUSDT=0.5 ] total=5073 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:43:52.750] [info] stats: 12.3 trades/s [ BNBUSDT=2.9 BTCUSDT=1.2 ETHUSDT=7.6 SOLUSDT=0.6 ] total=5196 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:44:02.750] [info] stats: 7.8 trades/s [ BNBUSDT=0.4 BTCUSDT=3.0 ETHUSDT=0.4 SOLUSDT=4.0 ] total=5274 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:44:12.751] [info] stats: 41.6 trades/s [ BNBUSDT=4.5 BTCUSDT=32.0 ETHUSDT=1.1 SOLUSDT=4.0 ] total=5690 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:44:22.752] [info] stats: 80.3 trades/s [ BNBUSDT=4.6 BTCUSDT=18.7 ETHUSDT=16.3 SOLUSDT=40.7 ] total=6493 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:44:32.752] [info] stats: 23.9 trades/s [ BNBUSDT=3.4 BTCUSDT=6.7 ETHUSDT=5.5 SOLUSDT=8.3 ] total=6732 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:44:42.752] [info] stats: 55.9 trades/s [ BNBUSDT=2.5 BTCUSDT=39.5 ETHUSDT=8.8 SOLUSDT=5.1 ] total=7291 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:44:52.752] [info] stats: 66.9 trades/s [ BNBUSDT=0.8 BTCUSDT=46.1 ETHUSDT=9.8 SOLUSDT=10.2 ] total=7960 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:45:02.753] [info] stats: 44.8 trades/s [ BNBUSDT=10.1 BTCUSDT=14.3 ETHUSDT=2.1 SOLUSDT=18.3 ] total=8408 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:45:12.753] [info] stats: 31.3 trades/s [ BNBUSDT=7.6 BTCUSDT=6.0 ETHUSDT=15.2 SOLUSDT=2.5 ] total=8721 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:45:22.753] [info] stats: 80.1 trades/s [ BNBUSDT=0.7 BTCUSDT=26.8 ETHUSDT=50.2 SOLUSDT=2.4 ] total=9522 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:45:32.753] [info] stats: 72.0 trades/s [ BNBUSDT=8.4 BTCUSDT=36.2 ETHUSDT=18.8 SOLUSDT=8.6 ] total=10242 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:45:42.753] [info] stats: 76.6 trades/s [ BNBUSDT=6.6 BTCUSDT=22.6 ETHUSDT=46.5 SOLUSDT=0.9 ] total=11008 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:45:52.754] [info] stats: 76.4 trades/s [ BNBUSDT=4.5 BTCUSDT=29.7 ETHUSDT=37.4 SOLUSDT=4.8 ] total=11772 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:46:02.754] [info] stats: 47.9 trades/s [ BNBUSDT=2.1 BTCUSDT=7.5 ETHUSDT=38.0 SOLUSDT=0.3 ] total=12251 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:46:12.754] [info] stats: 55.2 trades/s [ BNBUSDT=11.0 BTCUSDT=22.9 ETHUSDT=10.5 SOLUSDT=10.8 ] total=12803 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:46:22.754] [info] stats: 52.4 trades/s [ BNBUSDT=3.6 BTCUSDT=41.3 ETHUSDT=4.4 SOLUSDT=3.1 ] total=13327 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:46:32.754] [info] stats: 42.6 trades/s [ BNBUSDT=9.0 BTCUSDT=21.7 ETHUSDT=7.6 SOLUSDT=4.3 ] total=13753 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:46:42.754] [info] stats: 43.1 trades/s [ BNBUSDT=7.5 BTCUSDT=9.5 ETHUSDT=19.7 SOLUSDT=6.4 ] total=14184 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:46:52.754] [info] stats: 44.7 trades/s [ BNBUSDT=8.9 BTCUSDT=17.5 ETHUSDT=13.7 SOLUSDT=4.6 ] total=14631 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:47:02.755] [info] stats: 33.0 trades/s [ BNBUSDT=16.7 BTCUSDT=5.4 ETHUSDT=7.6 SOLUSDT=3.3 ] total=14961 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:47:12.757] [info] stats: 53.2 trades/s [ BNBUSDT=19.9 BTCUSDT=16.4 ETHUSDT=3.1 SOLUSDT=13.8 ] total=15493 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:47:22.757] [info] stats: 76.0 trades/s [ BNBUSDT=9.2 BTCUSDT=30.2 ETHUSDT=33.0 SOLUSDT=3.6 ] total=16253 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:47:32.757] [info] stats: 60.9 trades/s [ BNBUSDT=11.5 BTCUSDT=23.1 ETHUSDT=16.2 SOLUSDT=10.1 ] total=16862 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:47:42.757] [info] stats: 65.4 trades/s [ BNBUSDT=14.4 BTCUSDT=16.0 ETHUSDT=32.2 SOLUSDT=2.8 ] total=17516 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:47:52.757] [info] stats: 14.2 trades/s [ BNBUSDT=4.9 BTCUSDT=2.9 ETHUSDT=0.3 SOLUSDT=6.1 ] total=17658 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:48:02.758] [info] stats: 14.4 trades/s [ BNBUSDT=3.4 BTCUSDT=7.9 ETHUSDT=2.1 SOLUSDT=1.0 ] total=17802 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:48:12.758] [info] stats: 52.1 trades/s [ BNBUSDT=18.9 BTCUSDT=15.9 ETHUSDT=15.4 SOLUSDT=1.9 ] total=18323 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:48:22.758] [info] stats: 15.0 trades/s [ BNBUSDT=3.3 BTCUSDT=3.4 ETHUSDT=5.0 SOLUSDT=3.3 ] total=18473 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:48:32.759] [info] stats: 24.6 trades/s [ BNBUSDT=9.0 BTCUSDT=1.7 ETHUSDT=9.8 SOLUSDT=4.1 ] total=18719 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:48:42.759] [info] stats: 18.2 trades/s [ BNBUSDT=7.7 BTCUSDT=2.2 ETHUSDT=2.1 SOLUSDT=6.2 ] total=18901 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:48:52.760] [info] stats: 47.4 trades/s [ BNBUSDT=2.2 BTCUSDT=0.2 ETHUSDT=43.9 SOLUSDT=1.1 ] total=19375 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:49:02.760] [info] stats: 32.6 trades/s [ BNBUSDT=2.7 BTCUSDT=6.4 ETHUSDT=22.3 SOLUSDT=1.2 ] total=19701 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:49:12.760] [info] stats: 10.4 trades/s [ BNBUSDT=5.4 BTCUSDT=3.8 ETHUSDT=0.6 SOLUSDT=0.6 ] total=19805 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:49:22.760] [info] stats: 45.7 trades/s [ BNBUSDT=10.4 BTCUSDT=3.5 ETHUSDT=30.8 SOLUSDT=1.0 ] total=20262 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:49:32.760] [info] stats: 14.8 trades/s [ BNBUSDT=6.1 BTCUSDT=2.2 ETHUSDT=4.4 SOLUSDT=2.1 ] total=20410 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:49:42.761] [info] stats: 9.2 trades/s [ BNBUSDT=0.8 BTCUSDT=1.9 ETHUSDT=5.6 SOLUSDT=0.9 ] total=20502 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:49:52.761] [info] stats: 11.4 trades/s [ BNBUSDT=5.1 BTCUSDT=3.1 ETHUSDT=1.2 SOLUSDT=2.0 ] total=20616 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:50:02.761] [info] stats: 11.5 trades/s [ BNBUSDT=7.4 BTCUSDT=1.2 ETHUSDT=1.7 SOLUSDT=1.2 ] total=20731 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:50:12.762] [info] stats: 57.3 trades/s [ BNBUSDT=6.7 BTCUSDT=39.3 ETHUSDT=7.0 SOLUSDT=4.3 ] total=21304 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:50:22.763] [info] stats: 19.2 trades/s [ BNBUSDT=2.9 BTCUSDT=5.1 ETHUSDT=9.2 SOLUSDT=2.0 ] total=21496 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:50:32.764] [info] stats: 65.7 trades/s [ BNBUSDT=1.6 BTCUSDT=26.5 ETHUSDT=32.9 SOLUSDT=4.7 ] total=22153 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:50:42.764] [info] stats: 66.4 trades/s [ BNBUSDT=3.8 BTCUSDT=36.3 ETHUSDT=21.0 SOLUSDT=5.3 ] total=22817 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:50:52.764] [info] stats: 85.7 trades/s [ BNBUSDT=4.6 BTCUSDT=19.6 ETHUSDT=57.5 SOLUSDT=4.0 ] total=23674 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:51:02.764] [info] stats: 76.4 trades/s [ BNBUSDT=0.6 BTCUSDT=12.3 ETHUSDT=61.8 SOLUSDT=1.7 ] total=24438 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:51:12.765] [info] stats: 86.2 trades/s [ BNBUSDT=1.9 BTCUSDT=9.6 ETHUSDT=74.3 SOLUSDT=0.4 ] total=25300 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:51:18.534] [warning] read failed: End of file
+[2026-10-03 20:51:18.534] [info] reconnecting in 1s
+[2026-10-03 20:51:19.536] [info] connecting to stream.binance.com:9443/stream?streams=btcusdt@trade/ethusdt@trade/solusdt@trade/bnbusdt@trade
+[2026-10-03 20:51:21.601] [info] connected
+[2026-10-03 20:51:21.602] [warning] gap in BNBUSDT: ids 1597352321..1597352478 missing (158 trades)
+[2026-10-03 20:51:21.602] [warning] gap in BTCUSDT: ids 6733836462..6733836934 missing (473 trades)
+[2026-10-03 20:51:21.602] [warning] gap in SOLUSDT: ids 2072186003..2072186281 missing (279 trades)
+[2026-10-03 20:51:22.765] [info] stats: 45.8 trades/s [ BNBUSDT=3.4 BTCUSDT=2.3 ETHUSDT=35.9 SOLUSDT=4.2 ] total=25758 gaps=3 missing=910 reconnects=1 unparseable=0
+[2026-10-03 20:51:22.830] [warning] gap in ETHUSDT: ids 4406243092..4406244434 missing (1343 trades)
+[2026-10-03 20:51:32.765] [info] stats: 85.9 trades/s [ BNBUSDT=4.4 BTCUSDT=19.4 ETHUSDT=55.9 SOLUSDT=6.2 ] total=26617 gaps=4 missing=2253 reconnects=1 unparseable=0
+[2026-10-03 20:51:42.766] [info] stats: 27.0 trades/s [ BNBUSDT=1.4 BTCUSDT=5.7 ETHUSDT=12.8 SOLUSDT=7.1 ] total=26887 gaps=4 missing=2253 reconnects=1 unparseable=0
+[2026-10-03 20:51:52.766] [info] stats: 19.0 trades/s [ BNBUSDT=1.4 BTCUSDT=4.9 ETHUSDT=8.2 SOLUSDT=4.5 ] total=27077 gaps=4 missing=2253 reconnects=1 unparseable=0
+[2026-10-03 20:52:02.766] [info] stats: 30.0 trades/s [ BNBUSDT=0.5 BTCUSDT=3.3 ETHUSDT=18.1 SOLUSDT=8.1 ] total=27377 gaps=4 missing=2253 reconnects=1 unparseable=0
+[2026-10-03 20:52:12.766] [info] stats: 17.4 trades/s [ BNBUSDT=12.8 BTCUSDT=2.1 ETHUSDT=1.5 SOLUSDT=1.0 ] total=27551 gaps=4 missing=2253 reconnects=1 unparseable=0
+[2026-10-03 20:52:22.766] [info] stats: 9.7 trades/s [ BNBUSDT=1.8 BTCUSDT=3.7 ETHUSDT=2.7 SOLUSDT=1.5 ] total=27648 gaps=4 missing=2253 reconnects=1 unparseable=0
+[2026-10-03 20:52:32.766] [info] stats: 6.6 trades/s [ BNBUSDT=2.3 BTCUSDT=3.1 ETHUSDT=0.7 SOLUSDT=0.5 ] total=27714 gaps=4 missing=2253 reconnects=1 unparseable=0
+[2026-10-03 20:52:42.767] [info] stats: 40.7 trades/s [ BNBUSDT=2.0 BTCUSDT=30.5 ETHUSDT=7.1 SOLUSDT=1.1 ] total=28121 gaps=4 missing=2253 reconnects=1 unparseable=0
+[2026-10-03 20:52:52.768] [info] stats: 48.0 trades/s [ BNBUSDT=2.2 BTCUSDT=2.3 ETHUSDT=40.1 SOLUSDT=3.4 ] total=28601 gaps=4 missing=2253 reconnects=1 unparseable=0
+[2026-10-03 20:53:02.768] [info] stats: 110.3 trades/s [ BNBUSDT=6.9 BTCUSDT=30.7 ETHUSDT=66.6 SOLUSDT=6.1 ] total=29704 gaps=4 missing=2253 reconnects=1 unparseable=0
+[2026-10-03 20:53:12.768] [info] stats: 84.4 trades/s [ BNBUSDT=7.7 BTCUSDT=2.3 ETHUSDT=71.6 SOLUSDT=2.8 ] total=30548 gaps=4 missing=2253 reconnects=1 unparseable=0
+[2026-10-03 20:53:22.769] [info] stats: 105.2 trades/s [ BNBUSDT=16.3 BTCUSDT=9.0 ETHUSDT=74.8 SOLUSDT=5.1 ] total=31600 gaps=4 missing=2253 reconnects=1 unparseable=0
+[2026-10-03 20:53:32.769] [info] stats: 29.2 trades/s [ BNBUSDT=5.3 BTCUSDT=22.0 ETHUSDT=0.4 SOLUSDT=1.5 ] total=31892 gaps=4 missing=2253 reconnects=1 unparseable=0
+[2026-10-03 20:53:42.769] [info] stats: 10.4 trades/s [ BNBUSDT=6.4 BTCUSDT=1.4 ETHUSDT=0.9 SOLUSDT=1.7 ] total=31996 gaps=4 missing=2253 reconnects=1 unparseable=0
+[2026-10-03 20:53:52.769] [info] stats: 67.1 trades/s [ BNBUSDT=9.4 BTCUSDT=21.8 ETHUSDT=22.3 SOLUSDT=13.6 ] total=32667 gaps=4 missing=2253 reconnects=1 unparseable=0
+[2026-10-03 20:54:02.769] [info] stats: 95.6 trades/s [ BNBUSDT=9.3 BTCUSDT=29.4 ETHUSDT=51.7 SOLUSDT=5.2 ] total=33623 gaps=4 missing=2253 reconnects=1 unparseable=0
+[2026-10-03 20:54:12.769] [info] stats: 84.5 trades/s [ BNBUSDT=14.1 BTCUSDT=5.3 ETHUSDT=60.2 SOLUSDT=4.9 ] total=34468 gaps=4 missing=2253 reconnects=1 unparseable=0
+[2026-10-03 20:54:22.769] [info] stats: 35.0 trades/s [ BNBUSDT=5.9 BTCUSDT=12.4 ETHUSDT=11.4 SOLUSDT=5.3 ] total=34818 gaps=4 missing=2253 reconnects=1 unparseable=0
+[2026-10-03 20:54:32.771] [info] stats: 17.0 trades/s [ BNBUSDT=1.9 BTCUSDT=5.5 ETHUSDT=9.5 SOLUSDT=0.1 ] total=34988 gaps=4 missing=2253 reconnects=1 unparseable=0
+[2026-10-03 20:54:42.771] [info] stats: 47.9 trades/s [ BNBUSDT=1.0 BTCUSDT=36.6 ETHUSDT=6.2 SOLUSDT=4.1 ] total=35467 gaps=4 missing=2253 reconnects=1 unparseable=0
+[2026-10-03 20:54:52.771] [info] stats: 45.9 trades/s [ BNBUSDT=8.4 BTCUSDT=13.8 ETHUSDT=14.0 SOLUSDT=9.7 ] total=35926 gaps=4 missing=2253 reconnects=1 unparseable=0
+[2026-10-03 20:55:02.771] [info] stats: 14.0 trades/s [ BNBUSDT=2.3 BTCUSDT=1.7 ETHUSDT=3.6 SOLUSDT=6.4 ] total=36066 gaps=4 missing=2253 reconnects=1 unparseable=0
+[2026-10-03 20:55:12.772] [info] stats: 42.2 trades/s [ BNBUSDT=13.7 BTCUSDT=1.6 ETHUSDT=25.4 SOLUSDT=1.5 ] total=36488 gaps=4 missing=2253 reconnects=1 unparseable=0
+[2026-10-03 20:55:22.772] [info] stats: 23.2 trades/s [ BNBUSDT=10.6 BTCUSDT=6.8 ETHUSDT=2.9 SOLUSDT=2.9 ] total=36720 gaps=4 missing=2253 reconnects=1 unparseable=0
+[2026-10-03 20:55:32.678] [info] received signal 2, shutting down (press Ctrl+C again to force)
+[2026-10-03 20:55:32.678] [info] stopping feed client
+[2026-10-03 20:55:33.413] [info] connection closed (server skipped TLS close_notify)
+[2026-10-03 20:55:33.413] [info] shut down: total=36910 gaps=4 missing=2253 reconnects=1 unparseable=0
+36910 bench/data/live_capture.jsonl

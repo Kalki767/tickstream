@@ -1,0 +1,16 @@
+file: bench/data/live_capture.jsonl
+lines: 36910
+trades: 36910
+distinct (symbol, trade_id): 36910
+span: 899 s (exchange trade time T, first to last second inclusive)
+mean: 41.06 trades/s
+median 1-s bucket: 9 trades/s
+p99 1-s bucket: 599 trades/s
+peak 1-s bucket: 808 trades/s
+seconds with zero trades: 47
+id gaps inside capture: 4 (2253 missing trades)
+per symbol:
+  BNBUSDT: 5712 trades, 6.35/s
+  BTCUSDT: 11389 trades, 12.67/s
+  ETHUSDT: 15447 trades, 17.18/s
+  SOLUSDT: 4362 trades, 4.85/s

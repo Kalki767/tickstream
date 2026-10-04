@@ -1,0 +1,43 @@
+# AFTER fix 2 (destroy stream on mid-handshake exit to cancel websocket handshake timer), 3 passes
+## pass 1
+SIGINT at 0.05s | exited after 0.061 s     | last stage before signal: connecting to stream.binance.com:9443/st
+SIGINT at  0.1s | exited after 0.007 s     | last stage before signal: 
+SIGINT at 0.15s | exited after 0.391 s     | last stage before signal: connecting to stream.binance.com:9443/st
+SIGINT at  0.2s | exited after 0.403 s     | last stage before signal: connecting to stream.binance.com:9443/st
+SIGINT at  0.3s | exited after 0.348 s     | last stage before signal: connecting to stream.binance.com:9443/st
+SIGINT at  0.5s | exited after 0.074 s     | last stage before signal: connecting to stream.binance.com:9443/st
+SIGINT at  0.8s | exited after 0.075 s     | last stage before signal: connecting to stream.binance.com:9443/st
+SIGINT at  1.2s | exited after 0.075 s     | last stage before signal: connecting to stream.binance.com:9443/st
+SIGINT at  1.6s | exited after 0.071 s     | last stage before signal: connecting to stream.binance.com:9443/st
+SIGINT at  2.0s | exited after 0.061 s     | last stage before signal: connecting to stream.binance.com:9443/st
+SIGINT at  2.5s | exited after 0.069 s     | last stage before signal: connecting to stream.binance.com:9443/st
+SIGINT at  3.0s | exited after 0.692 s     | last stage before signal: connected
+hangs: 0 / 12
+## pass 2
+SIGINT at 0.05s | exited after 0.018 s     | last stage before signal: 
+SIGINT at  0.1s | exited after 0.013 s     | last stage before signal: 
+SIGINT at 0.15s | exited after 1.408 s     | last stage before signal: connecting to stream.binance.com:9443/st
+SIGINT at  0.2s | exited after 0.561 s     | last stage before signal: connecting to stream.binance.com:9443/st
+SIGINT at  0.3s | exited after 0.586 s     | last stage before signal: connecting to stream.binance.com:9443/st
+SIGINT at  0.5s | exited after 0.058 s     | last stage before signal: connecting to stream.binance.com:9443/st
+SIGINT at  0.8s | exited after 0.070 s     | last stage before signal: connecting to stream.binance.com:9443/st
+SIGINT at  1.2s | exited after 0.059 s     | last stage before signal: connecting to stream.binance.com:9443/st
+SIGINT at  1.6s | exited after 0.059 s     | last stage before signal: connecting to stream.binance.com:9443/st
+SIGINT at  2.0s | exited after 0.830 s     | last stage before signal: connected
+SIGINT at  2.5s | exited after 0.091 s     | last stage before signal: connecting to stream.binance.com:9443/st
+SIGINT at  3.0s | exited after 0.088 s     | last stage before signal: connecting to stream.binance.com:9443/st
+hangs: 0 / 12
+## pass 3
+SIGINT at 0.05s | exited after 0.007 s     | last stage before signal: 
+SIGINT at  0.1s | exited after 0.376 s     | last stage before signal: connecting to stream.binance.com:9443/st
+SIGINT at 0.15s | exited after 0.021 s     | last stage before signal: 
+SIGINT at  0.2s | exited after 1.380 s     | last stage before signal: connecting to stream.binance.com:9443/st
+SIGINT at  0.3s | exited after 0.343 s     | last stage before signal: connecting to stream.binance.com:9443/st
+SIGINT at  0.5s | exited after 0.454 s     | last stage before signal: connecting to stream.binance.com:9443/st
+SIGINT at  0.8s | exited after 0.062 s     | last stage before signal: connecting to stream.binance.com:9443/st
+SIGINT at  1.2s | exited after 0.070 s     | last stage before signal: connecting to stream.binance.com:9443/st
+SIGINT at  1.6s | exited after 0.072 s     | last stage before signal: connecting to stream.binance.com:9443/st
+SIGINT at  2.0s | exited after 0.371 s     | last stage before signal: connecting to stream.binance.com:9443/st
+SIGINT at  2.5s | exited after 1.168 s     | last stage before signal: connected
+SIGINT at  3.0s | exited after 0.069 s     | last stage before signal: connecting to stream.binance.com:9443/st
+hangs: 0 / 12

@@ -1,0 +1,1 @@
+# SIGINT 300 ms after start (mid-resolve/handshake), 3 runs

@@ -1,0 +1,34 @@
+Internal ctest changing into directory: /home/kalki/tickstream/build
+Test project /home/kalki/tickstream/build
+      Start  1: ParseTrade.ParsesRawTradePayload
+ 1/14 Test  #1: ParseTrade.ParsesRawTradePayload .................   Passed    0.00 sec
+      Start  2: ParseTrade.UnwrapsCombinedStreamEnvelope
+ 2/14 Test  #2: ParseTrade.UnwrapsCombinedStreamEnvelope .........   Passed    0.00 sec
+      Start  3: ParseTrade.KeepsPriceDigitsExactly
+ 3/14 Test  #3: ParseTrade.KeepsPriceDigitsExactly ...............   Passed    0.00 sec
+      Start  4: ParseTrade.RejectsMalformedJson
+ 4/14 Test  #4: ParseTrade.RejectsMalformedJson ..................   Passed    0.00 sec
+      Start  5: ParseTrade.RejectsNonObjectJson
+ 5/14 Test  #5: ParseTrade.RejectsNonObjectJson ..................   Passed    0.00 sec
+      Start  6: ParseTrade.RejectsMissingField
+ 6/14 Test  #6: ParseTrade.RejectsMissingField ...................   Passed    0.00 sec
+      Start  7: ParseTrade.RejectsWrongFieldType
+ 7/14 Test  #7: ParseTrade.RejectsWrongFieldType .................   Passed    0.00 sec
+      Start  8: ParseTrade.IgnoresOtherEventTypes
+ 8/14 Test  #8: ParseTrade.IgnoresOtherEventTypes ................   Passed    0.00 sec
+      Start  9: CombinedStreamTarget.JoinsAndLowercasesSymbols
+ 9/14 Test  #9: CombinedStreamTarget.JoinsAndLowercasesSymbols ...   Passed    0.00 sec
+      Start 10: CombinedStreamTarget.SingleSymbol
+10/14 Test #10: CombinedStreamTarget.SingleSymbol ................   Passed    0.00 sec
+      Start 11: Backoff.DoublesFromInitialDelay
+11/14 Test #11: Backoff.DoublesFromInitialDelay ..................   Passed    0.00 sec
+      Start 12: Backoff.CapsAtMaximum
+12/14 Test #12: Backoff.CapsAtMaximum ............................   Passed    0.00 sec
+      Start 13: Backoff.ResetStartsOver
+13/14 Test #13: Backoff.ResetStartsOver ..........................   Passed    0.00 sec
+      Start 14: Backoff.CustomInitialAndMax
+14/14 Test #14: Backoff.CustomInitialAndMax ......................   Passed    0.00 sec
+
+100% tests passed, 0 tests failed out of 14
+
+Total Test time (real) =   0.06 sec

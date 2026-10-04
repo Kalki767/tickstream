@@ -1,0 +1,6 @@
+$ BIN=<v0.3 binary, commit cccd8e9> bench/verify.sh bench/data/live_capture.jsonl 1 --writer naive
+replay: messages=36910 trades=36910 unparseable=0 copies=1 written=36910 inserted=36910 commits=36910 elapsed_s=76.105 throughput=485 trades/s
+verify rows: expected=36910 actual=36910 OK
+verify sum(price): expected=1014122891.34000000 actual=1014122891.34000000 OK
+verify sum(quantity): expected=16713.90137000 actual=16713.90137000 OK
+verify: PASS

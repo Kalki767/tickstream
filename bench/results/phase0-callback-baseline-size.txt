@@ -1,0 +1,35 @@
+$ git rev-parse HEAD
+fe16d282afe982bbf8d86b65a08ea18d7918f5b4
+
+$ wc -l src/feed_client.cpp include/tickstream/feed_client.hpp
+  245 src/feed_client.cpp
+   97 include/tickstream/feed_client.hpp
+  342 total
+
+$ grep -c "if (ec)" src/feed_client.cpp
+5
+
+$ grep -n "if (ec" src/feed_client.cpp
+107:    if (ec) {
+118:    if (ec) {
+142:    if (ec) {
+167:    if (ec) {
+185:    if (ec) {
+186:        if (ec == websocket::error::closed) {
+207:    } else if (ec == ssl::error::stream_truncated) {
+238:        if (ec || stopping_) {
+
+$ grep -c "return fail(" src/feed_client.cpp
+6
+
+# completion-handler member functions declared in feed_client.hpp
+64:    void connect();
+65:    void on_resolve(boost::beast::error_code ec,
+67:    void on_tcp_connect(boost::beast::error_code ec);
+68:    void on_tls_handshake(boost::beast::error_code ec);
+69:    void on_ws_handshake(boost::beast::error_code ec);
+70:    void read_next();
+71:    void on_read(boost::beast::error_code ec, std::size_t bytes);
+72:    void on_close(boost::beast::error_code ec);
+75:    void fail(boost::beast::error_code ec, std::string_view step);
+76:    void schedule_reconnect();

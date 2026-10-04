@@ -1,0 +1,21 @@
+$ timeout -s INT 30 ./build/tickstream --writer naive --dsn dbname=tickstream_live --stats-interval 10
+[2026-10-03 20:48:16.257] [info] connecting to stream.binance.com:9443/stream?streams=btcusdt@trade/ethusdt@trade/solusdt@trade/bnbusdt@trade
+[2026-10-03 20:48:19.444] [info] connected
+[2026-10-03 20:48:26.257] [info] stats: 11.0 trades/s [ BNBUSDT=2.6 BTCUSDT=1.1 ETHUSDT=5.1 SOLUSDT=2.2 ] total=110 gaps=0 missing=0 reconnects=0 unparseable=0 queue=0 queue_max=31 dropped=0 written=110 commits=110
+[2026-10-03 20:48:36.257] [info] stats: 20.8 trades/s [ BNBUSDT=8.7 BTCUSDT=2.2 ETHUSDT=4.9 SOLUSDT=5.0 ] total=318 gaps=0 missing=0 reconnects=0 unparseable=0 queue=0 queue_max=45 dropped=0 written=318 commits=318
+[2026-10-03 20:48:46.197] [info] received signal 2, shutting down (press Ctrl+C again to force)
+[2026-10-03 20:48:46.197] [info] stopping feed client
+[2026-10-03 20:48:46.257] [info] stats: 44.5 trades/s [ BNBUSDT=8.6 BTCUSDT=1.6 ETHUSDT=29.1 SOLUSDT=5.2 ] total=763 gaps=0 missing=0 reconnects=0 unparseable=0 queue=0 queue_max=93 dropped=0 written=763 commits=763
+[2026-10-03 20:48:48.197] [info] closed without server acknowledgement (The socket was closed due to a timeout)
+[2026-10-03 20:48:48.198] [info] feed stopped: total=763 gaps=0 missing=0 reconnects=0 unparseable=0 dropped=0 queue_max=93
+[2026-10-03 20:48:48.201] [info] shut down
+exit=124
+$ psql -d tickstream_live -c "select symbol, count(*) ... group by symbol"
+ symbol  | count |    min     |    max     | id_span 
+---------+-------+------------+------------+---------
+ BNBUSDT |   199 | 1597351500 | 1597351698 |     199
+ BTCUSDT |    49 | 6733834698 | 6733834746 |      49
+ ETHUSDT |   391 | 4406238872 | 4406239262 |     391
+ SOLUSDT |   124 | 2072185525 | 2072185648 |     124
+(4 rows)
+

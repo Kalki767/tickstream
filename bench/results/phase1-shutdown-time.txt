@@ -1,0 +1,8 @@
+# graceful shutdown: SIGINT -> process exit, while connected
+run 1: 2.011 s (exit status 0) | [info] closed without server acknowledgement (Operation canceled) [info] shut down 
+run 2: 0.679 s (exit status 0) | [info] connection closed (server skipped TLS close_notify) [info] shut down 
+run 3: 0.823 s (exit status 0) | [info] connection closed (server skipped TLS close_notify) [info] shut down 
+
+# force quit: SIGINT, then a second SIGINT 200 ms later
+force quit: 0.211 s after first SIGINT, exit status 130 (130 = killed by SIGINT)
+last log line: [2026-10-03 20:34:18.412] [info] stopping feed client

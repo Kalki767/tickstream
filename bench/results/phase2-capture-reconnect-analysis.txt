@@ -1,0 +1,43 @@
+# Reconnect during capture: exchange trade time (T) of the last trade before and first trade after each gap
+BNBUSDT: last before id=1597352320 T=1791049835433  first after id=1597352479 T=1791049880780  dark window=45.347 s  missing=158
+BTCUSDT: last before id=6733836461 T=1791049837798  first after id=6733836935 T=1791049880835  dark window=43.037 s  missing=473
+SOLUSDT: last before id=2072186002 T=1791049835641  first after id=2072186282 T=1791049880936  dark window=45.295 s  missing=279
+ETHUSDT: last before id=4406243091 T=1791049837956  first after id=4406244435 T=1791049882641  dark window=44.685 s  missing=1343
+last message before the EOF (file order): T=1791049837956  E=1791049837956
+client log: 'read failed: End of file' at 20:51:18.534 local, 'connected' at 20:51:21.601
+
+# Approximate feed lag = local receive time (stats line) - exchange time T of the n-th message,
+# where n = the stats line's running total. Two machines' clocks, so approximate (NTP-level skew).
+20:44:52 total=  7960 lag=  11.69 s
+20:45:22 total=  9522 lag=   8.06 s
+20:45:32 total= 10242 lag=  12.16 s
+20:45:42 total= 11008 lag=  15.10 s
+20:45:52 total= 11772 lag=   9.57 s
+20:46:02 total= 12251 lag=  15.95 s
+20:46:22 total= 13327 lag=   6.21 s
+20:47:02 total= 14961 lag=   5.28 s
+20:48:52 total= 19375 lag=  11.16 s
+20:49:02 total= 19701 lag=   0.46 s
+20:49:12 total= 19805 lag=   0.28 s
+20:49:22 total= 20262 lag=   0.20 s
+20:49:32 total= 20410 lag=   0.26 s
+20:49:42 total= 20502 lag=   0.35 s
+20:49:52 total= 20616 lag=   0.68 s
+20:50:02 total= 20731 lag=   0.84 s
+20:50:12 total= 21304 lag=   0.23 s
+20:50:22 total= 21496 lag=   1.43 s
+20:50:32 total= 22153 lag=   6.64 s
+20:50:42 total= 22817 lag=  14.86 s
+20:50:52 total= 23674 lag=  23.77 s
+20:51:02 total= 24438 lag=  30.00 s
+20:51:12 total= 25300 lag=  37.90 s
+20:51:22 total= 25758 lag=   0.81 s
+20:51:32 total= 26617 lag=   0.19 s
+20:51:42 total= 26887 lag=   0.83 s
+20:51:52 total= 27077 lag=   0.32 s
+20:52:02 total= 27377 lag=   0.41 s
+20:52:12 total= 27551 lag=   0.24 s
+20:52:22 total= 27648 lag=   0.58 s
+20:52:32 total= 27714 lag=   0.55 s
+20:52:42 total= 28121 lag=   4.33 s
+20:52:52 total= 28601 lag=   9.51 s

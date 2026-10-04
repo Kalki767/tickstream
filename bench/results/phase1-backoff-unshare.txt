@@ -1,0 +1,24 @@
+$ timeout -s INT 40 unshare -rn ./build/tickstream
+# binary built from coroutine rewrite (uncommitted working tree on top of 413f182)
+[2026-10-03 20:11:33.421] [info] connecting to stream.binance.com:9443/stream?streams=btcusdt@trade/ethusdt@trade/solusdt@trade/bnbusdt@trade
+[2026-10-03 20:11:33.422] [warning] resolve failed: Host not found (non-authoritative), try again later
+[2026-10-03 20:11:33.422] [info] reconnecting in 1s
+[2026-10-03 20:11:34.423] [info] connecting to stream.binance.com:9443/stream?streams=btcusdt@trade/ethusdt@trade/solusdt@trade/bnbusdt@trade
+[2026-10-03 20:11:34.424] [warning] resolve failed: Host not found (non-authoritative), try again later
+[2026-10-03 20:11:34.425] [info] reconnecting in 2s
+[2026-10-03 20:11:36.425] [info] connecting to stream.binance.com:9443/stream?streams=btcusdt@trade/ethusdt@trade/solusdt@trade/bnbusdt@trade
+[2026-10-03 20:11:36.425] [warning] resolve failed: Host not found (non-authoritative), try again later
+[2026-10-03 20:11:36.425] [info] reconnecting in 4s
+[2026-10-03 20:11:40.426] [info] connecting to stream.binance.com:9443/stream?streams=btcusdt@trade/ethusdt@trade/solusdt@trade/bnbusdt@trade
+[2026-10-03 20:11:40.426] [warning] resolve failed: Host not found (non-authoritative), try again later
+[2026-10-03 20:11:40.426] [info] reconnecting in 8s
+[2026-10-03 20:11:48.426] [info] connecting to stream.binance.com:9443/stream?streams=btcusdt@trade/ethusdt@trade/solusdt@trade/bnbusdt@trade
+[2026-10-03 20:11:48.428] [warning] resolve failed: Host not found (non-authoritative), try again later
+[2026-10-03 20:11:48.428] [info] reconnecting in 16s
+[2026-10-03 20:12:04.428] [info] connecting to stream.binance.com:9443/stream?streams=btcusdt@trade/ethusdt@trade/solusdt@trade/bnbusdt@trade
+[2026-10-03 20:12:04.429] [warning] resolve failed: Host not found (non-authoritative), try again later
+[2026-10-03 20:12:04.429] [info] reconnecting in 30s
+[2026-10-03 20:12:13.243] [info] received signal 2, shutting down (press Ctrl+C again to force)
+[2026-10-03 20:12:13.243] [info] stopping feed client
+[2026-10-03 20:12:13.243] [info] shut down
+exit=124

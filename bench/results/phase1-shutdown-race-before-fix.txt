@@ -1,0 +1,40 @@
+# v0.1-week1-callbacks (callback client, 413f182)
+SIGINT at 0.05s | exited after 0.017 s     | last stage before signal: 
+SIGINT at  0.1s | exited after 0.013 s     | last stage before signal: 
+SIGINT at 0.15s | HANG                     | last stage before signal: connecting to stream.binance.com:9443/st
+SIGINT at  0.2s | HANG                     | last stage before signal: connecting to stream.binance.com:9443/st
+SIGINT at  0.3s | HANG                     | last stage before signal: connecting to stream.binance.com:9443/st
+[1]+  Done                    "$BIN" > "$log" 2>&1
+SIGINT at  0.5s | exited after 0.079 s     | last stage before signal: connecting to stream.binance.com:9443/st
+SIGINT at  0.8s | HANG                     | last stage before signal: connecting to stream.binance.com:9443/st
+[1]+  Done                    "$BIN" > "$log" 2>&1
+SIGINT at  1.2s | exited after 0.069 s     | last stage before signal: connecting to stream.binance.com:9443/st
+[1]+  Done                    "$BIN" > "$log" 2>&1
+SIGINT at  1.6s | exited after 9.221 s     | last stage before signal: connecting to stream.binance.com:9443/st
+[1]+  Done                    "$BIN" > "$log" 2>&1
+SIGINT at  2.0s | exited after 0.068 s     | last stage before signal: connecting to stream.binance.com:9443/st
+[1]+  Done                    "$BIN" > "$log" 2>&1
+SIGINT at  2.5s | exited after 9.803 s     | last stage before signal: connecting to stream.binance.com:9443/st
+[1]+  Done                    "$BIN" > "$log" 2>&1
+SIGINT at  3.0s | exited after 0.833 s     | last stage before signal: connected
+hangs: 4 / 12
+
+# coroutine rewrite BEFORE fix (working tree on 413f182)
+SIGINT at 0.05s | exited after 0.015 s     | last stage before signal: 
+SIGINT at  0.1s | exited after 0.005 s     | last stage before signal: 
+SIGINT at 0.15s | HANG                     | last stage before signal: connecting to stream.binance.com:9443/st
+SIGINT at  0.2s | HANG                     | last stage before signal: connecting to stream.binance.com:9443/st
+SIGINT at  0.3s | HANG                     | last stage before signal: connecting to stream.binance.com:9443/st
+SIGINT at  0.5s | HANG                     | last stage before signal: connecting to stream.binance.com:9443/st
+SIGINT at  0.8s | HANG                     | last stage before signal: connecting to stream.binance.com:9443/st
+[1]+  Done                    "$BIN" > "$log" 2>&1
+SIGINT at  1.2s | exited after 9.765 s     | last stage before signal: connecting to stream.binance.com:9443/st
+[1]+  Done                    "$BIN" > "$log" 2>&1
+SIGINT at  1.6s | exited after 9.275 s     | last stage before signal: connecting to stream.binance.com:9443/st
+[1]+  Done                    "$BIN" > "$log" 2>&1
+SIGINT at  2.0s | exited after 2.011 s     | last stage before signal: connected
+[1]+  Done                    "$BIN" > "$log" 2>&1
+SIGINT at  2.5s | exited after 0.780 s     | last stage before signal: connected
+[1]+  Done                    "$BIN" > "$log" 2>&1
+SIGINT at  3.0s | exited after 1.368 s     | last stage before signal: connected
+hangs: 5 / 12

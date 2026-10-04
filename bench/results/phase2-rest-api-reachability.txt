@@ -1,0 +1,4 @@
+$ curl -sS -m 10 -o /dev/null -w '%{http_code} %{time_total}s' https://api.binance.com/api/v3/ping
+200 0.604035s
+$ curl -sS -m 10 -o /dev/null -w '%{http_code} %{time_total}s' https://data-api.binance.vision/api/v3/ping
+200 1.314298s

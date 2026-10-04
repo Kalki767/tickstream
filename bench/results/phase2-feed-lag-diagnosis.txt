@@ -1,0 +1,207 @@
+# Is the feed lag our client (unread bytes pile up in Recv-Q) or upstream (Recv-Q ~0)?
+# tickstream (Phase 2 binary, no DB) + ss -tin every 5 s for 240 s; lag computed afterwards from --record file
+--- 20:53:46.515
+0 0 rtt:352.896/133.038 bytes_received:25128 delivery_rate 25248bps rtt:302 rcv_space:17507 minrtt:307.918 0 0 rtt:341.932/50.947 bytes_received:1120021 delivery_rate 34616bps rtt:304.525 rcv_space:29407 minrtt:305.889 
+--- 20:53:51.740
+0 0 rtt:352.896/133.038 bytes_received:167137 delivery_rate 25248bps rtt:308 rcv_space:17507 minrtt:307.918 0 0 rtt:341.932/50.947 bytes_received:1209512 delivery_rate 34616bps rtt:302.746 rcv_space:29407 minrtt:305.889 
+--- 20:53:56.883
+0 0 rtt:352.896/133.038 bytes_received:246405 delivery_rate 25248bps rtt:303.891 rcv_space:17507 minrtt:307.918 0 0 rtt:341.932/50.947 bytes_received:1251976 delivery_rate 34616bps rtt:311.021 rcv_space:29407 minrtt:305.889 
+--- 20:54:02.029
+0 0 rtt:352.896/133.038 bytes_received:298158 delivery_rate 25248bps rtt:298.625 rcv_space:17507 minrtt:307.918 0 0 rtt:341.932/50.947 bytes_received:1360790 delivery_rate 34616bps rtt:302.453 rcv_space:29407 minrtt:305.889 
+--- 20:54:07.073
+0 0 rtt:352.896/133.038 bytes_received:340622 delivery_rate 25248bps rtt:306 rcv_space:17507 minrtt:307.918 0 0 rtt:341.932/50.947 bytes_received:1474912 delivery_rate 34616bps rtt:297.234 rcv_space:29407 minrtt:305.889 
+--- 20:54:12.136
+0 0 rtt:352.896/133.038 bytes_received:404318 delivery_rate 25248bps rtt:305.5 rcv_space:17507 minrtt:307.918 0 41 rtt:341.932/50.947 bytes_received:1520030 delivery_rate 34616bps rtt:302 rcv_space:29407 minrtt:305.889 
+--- 20:54:17.272
+0 0 rtt:350.559/104.451 bytes_received:466427 delivery_rate 31760bps rtt:307 rcv_space:17507 minrtt:307.918 0 0 rtt:343.366/41.077 bytes_received:1563329 delivery_rate 34616bps rtt:305.625 rcv_space:29407 minrtt:305.889 
+--- 20:54:22.387
+0 0 rtt:350.559/104.451 bytes_received:488138 delivery_rate 31760bps rtt:295 rcv_space:17507 minrtt:307.918 0 0 rtt:343.366/41.077 bytes_received:1585129 delivery_rate 34616bps rtt:313.243 rcv_space:29407 minrtt:305.889 
+--- 20:54:27.554
+0 0 rtt:362.111/101.443 bytes_received:517898 delivery_rate 31760bps rtt:319.375 rcv_space:17507 minrtt:307.918 0 0 rtt:350.806/45.689 bytes_received:1612769 delivery_rate 34616bps rtt:308.875 rcv_space:29407 minrtt:305.889 
+--- 20:54:32.684
+0 0 rtt:362.111/101.443 bytes_received:520996 delivery_rate 31760bps rtt:319.375 rcv_space:17507 minrtt:307.918 0 0 rtt:350.806/45.689 bytes_received:1616061 delivery_rate 34616bps rtt:308.875 rcv_space:29407 minrtt:305.889 
+--- 20:54:37.801
+0 0 rtt:362.111/101.443 bytes_received:539038 delivery_rate 31760bps rtt:314 rcv_space:17507 minrtt:307.918 0 0 rtt:350.806/45.689 bytes_received:1639217 delivery_rate 34616bps rtt:309.125 rcv_space:29407 minrtt:305.889 
+--- 20:54:42.948
+0 0 rtt:362.111/101.443 bytes_received:584156 delivery_rate 31760bps rtt:295 rcv_space:17507 minrtt:307.918 0 0 rtt:350.806/45.689 bytes_received:1710544 delivery_rate 34616bps rtt:300.923 rcv_space:29407 minrtt:305.889 
+--- 20:54:48.199
+0 0 rtt:362.111/101.443 bytes_received:621312 delivery_rate 31760bps rtt:295 rcv_space:17507 minrtt:307.918 0 0 rtt:355.694/44.042 bytes_received:1769062 delivery_rate 34616bps rtt:326.421 rcv_space:29407 minrtt:305.889 
+--- 20:54:53.306
+0 0 rtt:360.972/78.36 bytes_received:678105 delivery_rate 31760bps rtt:317.103 rcv_space:17507 minrtt:307.918 0 0 rtt:355.694/44.042 bytes_received:1780801 delivery_rate 34616bps rtt:325 rcv_space:29407 minrtt:305.889 
+--- 20:54:58.419
+0 0 rtt:360.972/78.36 bytes_received:702065 delivery_rate 31760bps rtt:328 rcv_space:17507 minrtt:307.918 0 0 rtt:355.694/44.042 bytes_received:1796071 delivery_rate 34616bps rtt:306.75 rcv_space:29407 minrtt:305.889 
+--- 20:55:03.483
+0 41 rtt:360.972/78.36 bytes_received:754826 delivery_rate 31760bps rtt:310 rcv_space:17507 minrtt:307.918 0 0 rtt:355.694/44.042 bytes_received:1817524 delivery_rate 34616bps rtt:306 rcv_space:29407 minrtt:305.889 
+--- 20:55:08.552
+0 0 rtt:354.405/71.904 bytes_received:760100 delivery_rate 34416bps rtt:310 rcv_space:17507 minrtt:307.918 0 0 rtt:358.572/38.787 bytes_received:1856525 delivery_rate 34616bps rtt:307 rcv_space:29407 minrtt:305.889 
+--- 20:55:13.617
+0 0 rtt:354.405/71.904 bytes_received:786760 delivery_rate 34416bps rtt:344.865 rcv_space:17507 minrtt:307.918 0 0 rtt:358.572/38.787 bytes_received:1882181 delivery_rate 34616bps rtt:298 rcv_space:29407 minrtt:305.889 
+--- 20:55:18.653
+0 0 rtt:354.405/71.904 bytes_received:805680 delivery_rate 34416bps rtt:310.921 rcv_space:17507 minrtt:307.918 0 0 rtt:358.572/38.787 bytes_received:1901920 delivery_rate 34616bps rtt:300 rcv_space:29407 minrtt:305.889 
+--- 20:55:23.695
+0 0 rtt:347.055/68.628 bytes_received:837042 delivery_rate 35912bps rtt:311.941 rcv_space:17507 minrtt:295.604 0 0 rtt:358.572/38.787 bytes_received:1931789 delivery_rate 34616bps rtt:333.312 rcv_space:29407 minrtt:305.889 
+--- 20:55:28.737
+0 0 rtt:347.055/68.628 bytes_received:851026 delivery_rate 35912bps rtt:311 rcv_space:17507 minrtt:295.604 0 0 rtt:361.16/34.268 bytes_received:1947254 delivery_rate 34616bps rtt:300.906 rcv_space:29407 minrtt:305.889 
+--- 20:55:33.783
+0 0 rtt:347.055/68.628 bytes_received:859051 delivery_rate 35912bps rtt:311.125 rcv_space:17507 minrtt:295.604 
+--- 20:55:38.828
+0 0 rtt:347.055/68.628 bytes_received:867754 delivery_rate 35912bps rtt:317.484 rcv_space:17507 minrtt:295.604 
+--- 20:55:43.872
+0 0 rtt:347.612/52.585 bytes_received:876472 delivery_rate 35912bps rtt:317.484 rcv_space:17507 minrtt:295.604 
+--- 20:55:48.923
+0 0 rtt:347.612/52.585 bytes_received:914552 delivery_rate 35912bps rtt:343.4 rcv_space:17507 minrtt:295.604 
+--- 20:55:53.996
+0 0 rtt:347.612/52.585 bytes_received:926411 delivery_rate 35912bps rtt:333.625 rcv_space:17507 minrtt:295.604 
+--- 20:55:59.050
+0 0 rtt:347.612/52.585 bytes_received:953725 delivery_rate 35912bps rtt:346.312 rcv_space:17507 minrtt:295.604 
+--- 20:56:04.096
+0 0 rtt:349.028/42.27 bytes_received:963825 delivery_rate 35912bps rtt:298 rcv_space:17507 minrtt:295.604 
+--- 20:56:09.147
+0 0 rtt:349.028/42.27 bytes_received:979948 delivery_rate 35912bps rtt:334.269 rcv_space:17507 minrtt:295.604 
+--- 20:56:14.201
+0 0 rtt:349.028/42.27 bytes_received:987817 delivery_rate 35912bps rtt:334.269 rcv_space:17507 minrtt:295.604 
+--- 20:56:19.444
+0 0 rtt:349.028/42.27 bytes_received:1037040 delivery_rate 35912bps rtt:312.25 rcv_space:17507 minrtt:295.604 
+--- 20:56:24.490
+0 0 rtt:349.028/42.27 bytes_received:1071741 delivery_rate 35912bps rtt:328.734 rcv_space:17507 minrtt:295.604 
+--- 20:56:29.616
+0 0 rtt:344.708/40.342 bytes_received:1130175 delivery_rate 35912bps rtt:326.078 rcv_space:17507 minrtt:295.604 
+--- 20:56:34.825
+0 0 rtt:344.708/40.342 bytes_received:1168620 delivery_rate 35912bps rtt:318.125 rcv_space:17507 minrtt:295.604 
+--- 20:56:39.959
+0 0 rtt:344.708/40.342 bytes_received:1179771 delivery_rate 35912bps rtt:304.328 rcv_space:17507 minrtt:295.604 
+--- 20:56:45.015
+0 0 rtt:340.265/39.141 bytes_received:1198249 delivery_rate 35912bps rtt:315.25 rcv_space:17507 minrtt:295.604 
+--- 20:56:50.230
+0 0 rtt:340.265/39.141 bytes_received:1205624 delivery_rate 35912bps rtt:327.093 rcv_space:17507 minrtt:295.604 
+--- 20:56:55.389
+0 0 rtt:340.265/39.141 bytes_received:1214112 delivery_rate 35912bps rtt:317.125 rcv_space:17507 minrtt:295.604 
+--- 20:57:00.569
+0 0 rtt:340.265/39.141 bytes_received:1216431 delivery_rate 35912bps rtt:317.125 rcv_space:17507 minrtt:295.604 
+--- 20:57:05.727
+0 0 rtt:348.029/44.883 bytes_received:1224859 delivery_rate 35912bps rtt:366.765 rcv_space:17507 minrtt:295.604 
+--- 20:57:10.904
+0 0 rtt:348.029/44.883 bytes_received:1232684 delivery_rate 35912bps rtt:306 rcv_space:17507 minrtt:295.604 
+--- 20:57:16.072
+0 0 rtt:348.029/44.883 bytes_received:1255349 delivery_rate 35912bps rtt:328.125 rcv_space:17507 minrtt:295.604 
+--- 20:57:21.250
+0 0 rtt:348.029/44.883 bytes_received:1291425 delivery_rate 35912bps rtt:320.093 rcv_space:17507 minrtt:295.604 
+--- 20:57:26.402
+0 0 rtt:365.207/68.019 bytes_received:1301339 delivery_rate 35912bps rtt:307 rcv_space:17507 minrtt:295.604 
+--- 20:57:31.527
+0 0 rtt:365.207/68.019 bytes_received:1319011 delivery_rate 35912bps rtt:299 rcv_space:17507 minrtt:295.604 
+--- 20:57:36.676
+0 0 rtt:365.207/68.019 bytes_received:1347890 delivery_rate 35912bps rtt:302 rcv_space:17507 minrtt:295.604 
+--- 20:57:41.865
+0 0 rtt:365.207/68.019 bytes_received:1418869 delivery_rate 35912bps rtt:309.515 rcv_space:17507 minrtt:295.604 
+--- 20:57:47.023
+0 0 rtt:359.031/63.367 bytes_received:1572801 delivery_rate 35912bps rtt:298 rcv_space:33489 minrtt:295.604 
+# client log:
+[2026-10-03 20:53:41.502] [info] recording raw messages to /tmp/claude-1000/-home-kalki-tickstream/fc9ac48c-af46-4d41-b174-5d04cc266ff1/scratchpad/lagdiag.jsonl
+[2026-10-03 20:53:41.708] [info] connecting to stream.binance.com:9443/stream?streams=btcusdt@trade/ethusdt@trade/solusdt@trade/bnbusdt@trade
+[2026-10-03 20:53:43.398] [info] connected
+[2026-10-03 20:53:46.708] [info] stats: 23.2 trades/s [ BNBUSDT=11.2 BTCUSDT=1.4 ETHUSDT=0.6 SOLUSDT=10.0 ] total=116 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:53:51.710] [info] stats: 146.8 trades/s [ BNBUSDT=6.6 BTCUSDT=43.6 ETHUSDT=78.6 SOLUSDT=18.0 ] total=850 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:53:56.711] [info] stats: 98.0 trades/s [ BNBUSDT=17.2 BTCUSDT=55.0 ETHUSDT=19.2 SOLUSDT=6.6 ] total=1340 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:54:01.711] [info] stats: 55.4 trades/s [ BNBUSDT=1.4 BTCUSDT=1.8 ETHUSDT=49.6 SOLUSDT=2.6 ] total=1617 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:54:06.711] [info] stats: 57.4 trades/s [ BNBUSDT=2.8 BTCUSDT=0.0 ETHUSDT=49.0 SOLUSDT=5.6 ] total=1904 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:54:11.711] [info] stats: 57.6 trades/s [ BNBUSDT=4.4 BTCUSDT=1.0 ETHUSDT=51.4 SOLUSDT=0.8 ] total=2192 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:54:16.711] [info] stats: 90.8 trades/s [ BNBUSDT=22.8 BTCUSDT=16.2 ETHUSDT=41.8 SOLUSDT=10.0 ] total=2646 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:54:21.711] [info] stats: 15.0 trades/s [ BNBUSDT=7.4 BTCUSDT=4.4 ETHUSDT=0.6 SOLUSDT=2.6 ] total=2721 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:54:26.713] [info] stats: 47.0 trades/s [ BNBUSDT=4.2 BTCUSDT=22.4 ETHUSDT=19.0 SOLUSDT=1.4 ] total=2956 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:54:31.715] [info] stats: 4.4 trades/s [ BNBUSDT=2.2 BTCUSDT=2.0 ETHUSDT=0.0 SOLUSDT=0.2 ] total=2978 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:54:36.715] [info] stats: 7.0 trades/s [ BNBUSDT=1.8 BTCUSDT=1.8 ETHUSDT=1.0 SOLUSDT=2.4 ] total=3013 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:54:41.715] [info] stats: 51.2 trades/s [ BNBUSDT=0.2 BTCUSDT=47.6 ETHUSDT=0.0 SOLUSDT=3.4 ] total=3269 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:54:46.715] [info] stats: 26.6 trades/s [ BNBUSDT=0.0 BTCUSDT=24.2 ETHUSDT=0.0 SOLUSDT=2.4 ] total=3402 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:54:51.715] [info] stats: 69.6 trades/s [ BNBUSDT=12.6 BTCUSDT=9.6 ETHUSDT=39.4 SOLUSDT=8.0 ] total=3750 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:54:56.716] [info] stats: 44.4 trades/s [ BNBUSDT=8.0 BTCUSDT=19.4 ETHUSDT=0.6 SOLUSDT=16.4 ] total=3972 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:55:01.719] [info] stats: 24.8 trades/s [ BNBUSDT=0.8 BTCUSDT=2.0 ETHUSDT=14.2 SOLUSDT=7.8 ] total=4096 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:55:06.719] [info] stats: 49.6 trades/s [ BNBUSDT=5.0 BTCUSDT=1.8 ETHUSDT=40.8 SOLUSDT=2.0 ] total=4344 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:55:11.719] [info] stats: 17.6 trades/s [ BNBUSDT=14.6 BTCUSDT=1.0 ETHUSDT=1.2 SOLUSDT=0.8 ] total=4432 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:55:16.719] [info] stats: 26.4 trades/s [ BNBUSDT=15.0 BTCUSDT=2.0 ETHUSDT=5.0 SOLUSDT=4.4 ] total=4564 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:55:21.719] [info] stats: 20.4 trades/s [ BNBUSDT=14.0 BTCUSDT=2.4 ETHUSDT=2.4 SOLUSDT=1.6 ] total=4666 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:55:26.719] [info] stats: 34.6 trades/s [ BNBUSDT=11.6 BTCUSDT=19.8 ETHUSDT=3.2 SOLUSDT=0.0 ] total=4839 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:55:31.720] [info] stats: 10.8 trades/s [ BNBUSDT=3.2 BTCUSDT=2.0 ETHUSDT=1.8 SOLUSDT=3.8 ] total=4893 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:55:36.720] [info] stats: 7.2 trades/s [ BNBUSDT=3.0 BTCUSDT=2.2 ETHUSDT=1.0 SOLUSDT=1.0 ] total=4929 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:55:41.720] [info] stats: 8.8 trades/s [ BNBUSDT=1.4 BTCUSDT=2.4 ETHUSDT=1.2 SOLUSDT=3.8 ] total=4973 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:55:46.720] [info] stats: 26.8 trades/s [ BNBUSDT=1.6 BTCUSDT=11.2 ETHUSDT=1.6 SOLUSDT=12.4 ] total=5107 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:55:51.720] [info] stats: 22.8 trades/s [ BNBUSDT=0.8 BTCUSDT=3.4 ETHUSDT=1.8 SOLUSDT=16.8 ] total=5221 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:55:56.720] [info] stats: 20.4 trades/s [ BNBUSDT=11.0 BTCUSDT=2.6 ETHUSDT=0.8 SOLUSDT=6.0 ] total=5323 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:56:01.720] [info] stats: 27.8 trades/s [ BNBUSDT=13.2 BTCUSDT=12.6 ETHUSDT=1.8 SOLUSDT=0.2 ] total=5462 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:56:06.720] [info] stats: 21.4 trades/s [ BNBUSDT=18.6 BTCUSDT=1.4 ETHUSDT=0.8 SOLUSDT=0.6 ] total=5569 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:56:11.721] [info] stats: 5.6 trades/s [ BNBUSDT=2.6 BTCUSDT=2.2 ETHUSDT=0.4 SOLUSDT=0.4 ] total=5597 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:56:16.721] [info] stats: 25.2 trades/s [ BNBUSDT=6.8 BTCUSDT=4.4 ETHUSDT=13.2 SOLUSDT=0.8 ] total=5723 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:56:21.721] [info] stats: 59.0 trades/s [ BNBUSDT=17.6 BTCUSDT=9.6 ETHUSDT=0.8 SOLUSDT=31.0 ] total=6018 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:56:26.721] [info] stats: 31.6 trades/s [ BNBUSDT=8.6 BTCUSDT=20.8 ETHUSDT=0.6 SOLUSDT=1.6 ] total=6176 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:56:31.721] [info] stats: 90.2 trades/s [ BNBUSDT=26.2 BTCUSDT=46.4 ETHUSDT=14.6 SOLUSDT=3.0 ] total=6627 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:56:36.721] [info] stats: 5.2 trades/s [ BNBUSDT=0.8 BTCUSDT=2.8 ETHUSDT=1.4 SOLUSDT=0.2 ] total=6653 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:56:41.722] [info] stats: 13.4 trades/s [ BNBUSDT=9.8 BTCUSDT=3.4 ETHUSDT=0.2 SOLUSDT=0.0 ] total=6720 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:56:46.722] [info] stats: 18.6 trades/s [ BNBUSDT=8.8 BTCUSDT=6.6 ETHUSDT=1.8 SOLUSDT=1.4 ] total=6813 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:56:51.722] [info] stats: 6.8 trades/s [ BNBUSDT=0.4 BTCUSDT=5.6 ETHUSDT=0.8 SOLUSDT=0.0 ] total=6847 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:56:56.722] [info] stats: 9.4 trades/s [ BNBUSDT=6.6 BTCUSDT=1.4 ETHUSDT=0.4 SOLUSDT=1.0 ] total=6894 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:57:01.722] [info] stats: 1.8 trades/s [ BNBUSDT=0.6 BTCUSDT=0.6 ETHUSDT=0.4 SOLUSDT=0.2 ] total=6903 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:57:06.722] [info] stats: 9.2 trades/s [ BNBUSDT=5.4 BTCUSDT=2.6 ETHUSDT=0.6 SOLUSDT=0.6 ] total=6949 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:57:11.723] [info] stats: 9.0 trades/s [ BNBUSDT=2.0 BTCUSDT=6.0 ETHUSDT=0.4 SOLUSDT=0.6 ] total=6994 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:57:16.723] [info] stats: 33.8 trades/s [ BNBUSDT=9.2 BTCUSDT=1.8 ETHUSDT=22.4 SOLUSDT=0.4 ] total=7163 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:57:21.727] [info] stats: 33.0 trades/s [ BNBUSDT=0.8 BTCUSDT=1.0 ETHUSDT=31.0 SOLUSDT=0.2 ] total=7328 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:57:26.727] [info] stats: 14.8 trades/s [ BNBUSDT=11.2 BTCUSDT=2.0 ETHUSDT=0.6 SOLUSDT=1.0 ] total=7402 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:57:31.727] [info] stats: 3.8 trades/s [ BNBUSDT=1.6 BTCUSDT=1.2 ETHUSDT=0.4 SOLUSDT=0.6 ] total=7421 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:57:36.727] [info] stats: 42.6 trades/s [ BNBUSDT=4.6 BTCUSDT=1.8 ETHUSDT=14.0 SOLUSDT=22.2 ] total=7634 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:57:41.727] [info] stats: 73.2 trades/s [ BNBUSDT=1.2 BTCUSDT=47.4 ETHUSDT=18.4 SOLUSDT=6.2 ] total=8000 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:57:46.727] [info] stats: 170.6 trades/s [ BNBUSDT=32.6 BTCUSDT=93.8 ETHUSDT=39.0 SOLUSDT=5.2 ] total=8853 gaps=0 missing=0 reconnects=0 unparseable=0
+[2026-10-03 20:57:47.192] [info] received signal 2, shutting down (press Ctrl+C again to force)
+[2026-10-03 20:57:47.192] [info] stopping feed client
+[2026-10-03 20:57:49.193] [info] closed without server acknowledgement (The socket was closed due to a timeout)
+[2026-10-03 20:57:49.193] [info] shut down: total=8853 gaps=0 missing=0 reconnects=0 unparseable=0
+
+# approximate lag in this run (local stats-line time - exchange T of the n-th message)
+20:53:46 rate=  23.2/s total=   116 lag=  0.28 s
+20:53:51 rate= 146.8/s total=   850 lag=  3.97 s
+20:53:56 rate=  98.0/s total=  1340 lag=  5.23 s
+20:54:01 rate=  55.4/s total=  1617 lag=  8.70 s
+20:54:06 rate=  57.4/s total=  1904 lag= 13.68 s
+20:54:11 rate=  57.6/s total=  2192 lag= 16.40 s
+20:54:16 rate=  90.8/s total=  2646 lag=  1.07 s
+20:54:21 rate=  15.0/s total=  2721 lag=  2.46 s
+20:54:26 rate=  47.0/s total=  2956 lag=  0.36 s
+20:54:31 rate=   4.4/s total=  2978 lag=  0.38 s
+20:54:36 rate=   7.0/s total=  3013 lag=  0.59 s
+20:54:41 rate=  51.2/s total=  3269 lag=  5.10 s
+20:54:46 rate=  26.6/s total=  3402 lag=  9.48 s
+20:54:51 rate=  69.6/s total=  3750 lag=  6.82 s
+20:54:56 rate=  44.4/s total=  3972 lag=  0.34 s
+20:55:01 rate=  24.8/s total=  4096 lag=  1.02 s
+20:55:06 rate=  49.6/s total=  4344 lag=  0.44 s
+20:55:11 rate=  17.6/s total=  4432 lag=  0.92 s
+20:55:16 rate=  26.4/s total=  4564 lag=  0.79 s
+20:55:21 rate=  20.4/s total=  4666 lag=  0.79 s
+20:55:26 rate=  34.6/s total=  4839 lag=  1.11 s
+20:55:31 rate=  10.8/s total=  4893 lag=  0.26 s
+20:55:36 rate=   7.2/s total=  4929 lag=  1.01 s
+20:55:41 rate=   8.8/s total=  4973 lag=  0.31 s
+20:55:46 rate=  26.8/s total=  5107 lag=  0.69 s
+20:55:51 rate=  22.8/s total=  5221 lag=  0.50 s
+20:55:56 rate=  20.4/s total=  5323 lag=  0.19 s
+20:56:01 rate=  27.8/s total=  5462 lag=  0.26 s
+20:56:06 rate=  21.4/s total=  5569 lag=  0.39 s
+20:56:11 rate=   5.6/s total=  5597 lag=  0.68 s
+20:56:16 rate=  25.2/s total=  5723 lag=  0.32 s
+20:56:21 rate=  59.0/s total=  6018 lag=  2.46 s
+20:56:26 rate=  31.6/s total=  6176 lag=  5.89 s
+20:56:31 rate=  90.2/s total=  6627 lag=  0.96 s
+20:56:36 rate=   5.2/s total=  6653 lag=  0.22 s
+20:56:41 rate=  13.4/s total=  6720 lag=  1.28 s
+20:56:46 rate=  18.6/s total=  6813 lag=  0.37 s
+20:56:51 rate=   6.8/s total=  6847 lag=  0.48 s
+20:56:56 rate=   9.4/s total=  6894 lag=  0.29 s
+20:57:01 rate=   1.8/s total=  6903 lag=  1.86 s
+20:57:06 rate=   9.2/s total=  6949 lag=  2.15 s
+20:57:11 rate=   9.0/s total=  6994 lag=  0.73 s
+20:57:16 rate=  33.8/s total=  7163 lag=  1.07 s
+20:57:21 rate=  33.0/s total=  7328 lag=  1.50 s
+20:57:26 rate=  14.8/s total=  7402 lag=  0.49 s
+20:57:31 rate=   3.8/s total=  7421 lag=  1.31 s
+20:57:36 rate=  42.6/s total=  7634 lag=  1.64 s
+20:57:41 rate=  73.2/s total=  8000 lag=  5.21 s
+20:57:46 rate= 170.6/s total=  8853 lag=  1.30 s
+max lag 16.40 s

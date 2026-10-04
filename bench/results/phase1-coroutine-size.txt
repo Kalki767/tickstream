@@ -1,0 +1,21 @@
+# after coroutine rewrite + both shutdown fixes (working tree on top of 413f182)
+$ wc -l src/feed_client.cpp include/tickstream/feed_client.hpp
+  231 src/feed_client.cpp
+   91 include/tickstream/feed_client.hpp
+  322 total
+
+$ grep -c "if (ec)" src/feed_client.cpp
+0
+$ grep -c "catch (" src/feed_client.cpp
+1
+$ grep -c "co_await" src/feed_client.cpp
+7
+
+# non-blank, non-comment lines before vs after
+v0.1-week1-callbacks: 220
+after: 194
+
+# member functions: before
+12
+# member functions: after (incl. awaitables)
+3
