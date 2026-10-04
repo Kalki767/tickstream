@@ -24,4 +24,14 @@ std::string combined_trade_stream_target(const std::vector<std::string>& symbols
 // bad message must not take down the feed.
 std::optional<Trade> parse_trade(std::string_view message);
 
+// The two implementations behind parse_trade(), exposed for the differential
+// test (they must agree on real captured messages) and the benchmark.
+//   dom: builds an nlohmann::json tree, then reads fields from it.
+//   sax: nlohmann's SAX interface; reads fields as the parser meets them,
+//        without building a tree. Stricter on one point: trade ids must be
+//        JSON integers (the DOM version's get<int64_t>() also accepts and
+//        truncates floats, and converts booleans).
+std::optional<Trade> parse_trade_dom(std::string_view message);
+std::optional<Trade> parse_trade_sax(std::string_view message);
+
 }  // namespace tickstream::binance
