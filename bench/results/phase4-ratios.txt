@@ -1,0 +1,17 @@
+# derived from phase4-writer-summary.txt medians; live peak 808 and mean 41.06 from phase2-live-rate.txt
+null-1000       median= 120135  x naive median= 600.67  x live peak=148.68  runs=[127585, 120135, 104276]
+naive           median=    200  x naive median=   1.00  x live peak=  0.25  runs=[471, 200, 198]
+naive-syncoff   median=  11746  x naive median=  58.73  x live peak= 14.54  runs=[11746, 6752, 12116]
+txn-100         median=   3706  x naive median=  18.53  x live peak=  4.59  runs=[3456, 3706, 5883]
+multirow-10     median=   1706  x naive median=   8.53  x live peak=  2.11  runs=[1706, 1711, 1693]
+multirow-100    median=  11878  x naive median=  59.39  x live peak= 14.70  runs=[8994, 11878, 12040]
+multirow-1000   median=  37220  x naive median= 186.10  x live peak= 46.06  runs=[33445, 37220, 37521]
+multirow-5000   median=  35375  x naive median= 176.88  x live peak= 43.78  runs=[40991, 35375, 31075]
+copy-10         median=   1361  x naive median=   6.80  x live peak=  1.68  runs=[1361, 1347, 1428]
+copy-100        median=   9188  x naive median=  45.94  x live peak= 11.37  runs=[9093, 9188, 9927]
+copy-1000       median=  32055  x naive median= 160.28  x live peak= 39.67  runs=[32055, 31918, 34979]
+copy-5000       median=  45050  x naive median= 225.25  x live peak= 55.75  runs=[46527, 45050, 41501]
+copy-5000 vs naive best run (471): 95.6x
+multirow-1000 vs naive best run (471): 79.0x
+copy-5000 as % of null ceiling: 37.5%
+naive median as % of live peak: 24.8%; naive best run as % of peak: 58.3%

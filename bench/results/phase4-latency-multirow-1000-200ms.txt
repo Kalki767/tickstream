@@ -1,0 +1,12 @@
+$ /tmp/claude-1000/-home-kalki-tickstream/fc9ac48c-af46-4d41-b174-5d04cc266ff1/scratchpad/tickstream-lat --dsn dbname=tickstream_live --latency-out bench/results/phase4-latency-multirow-1000-200ms.ns --writer multirow --batch-size 1000 --flush-ms 200 (for 300s)
+feed stopped: total=8492 gaps=0 missing=0 reconnects=0 unparseable=0 dropped=0 queue_max=115
+wrote 8492 latency samples to bench/results/phase4-latency-multirow-1000-200ms.ns
+file: bench/results/phase4-latency-multirow-1000-200ms.ns
+samples: 8492
+mean: 166.162 ms
+p50: 202.845 ms
+p95: 217.308 ms
+p99: 240.482 ms
+p99.9: 245.612 ms
+min: 4.125 ms
+max: 246.218 ms

@@ -1,0 +1,17 @@
+# writer benchmark: 2026-10-03T21:02:07+03:00
+# commit e3204b3, build type RelWithDebInfo
+# capture bench/data/live_capture.jsonl x 6 copies, 3 runs per config, median reported
+# power: AC online=0, governor=powersave, loadavg=3.99 3.28 2.58
+config                 run1       run2       run3     median  verify
+null-1000            127585     120135     104276     120135  n/a(null) 
+naive                   471        200        198        200  PASS 
+naive-syncoff         11746       6752      12116      11746  PASS 
+txn-100                3456       3706       5883       3706  PASS 
+multirow-10            1706       1711       1693       1706  PASS 
+multirow-100           8994      11878      12040      11878  PASS 
+multirow-1000         33445      37220      37521      37220  PASS 
+multirow-5000         40991      35375      31075      35375  PASS 
+copy-10                1361       1347       1428       1361  PASS 
+copy-100               9093       9188       9927       9188  PASS 
+copy-1000             32055      31918      34979      32055  PASS 
+copy-5000             46527      45050      41501      45050  PASS 

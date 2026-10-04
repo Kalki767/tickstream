@@ -1,0 +1,38 @@
+$ /usr/lib/postgresql/16/bin/pg_test_fsync -s 3 -f ~/pg_test_fsync.tmp   (same SSD/filesystem as the Postgres data dir)
+# power: AC online=1
+3 seconds per test
+O_DIRECT supported on this platform for open_datasync and open_sync.
+
+Compare file sync methods using one 8kB write:
+(in wal_sync_method preference order, except fdatasync is Linux's default)
+        open_datasync                       783.035 ops/sec    1277 usecs/op
+        fdatasync                           709.951 ops/sec    1409 usecs/op
+        fsync                               309.815 ops/sec    3228 usecs/op
+        fsync_writethrough                              n/a
+        open_sync                           311.580 ops/sec    3209 usecs/op
+
+Compare file sync methods using two 8kB writes:
+(in wal_sync_method preference order, except fdatasync is Linux's default)
+        open_datasync                       358.087 ops/sec    2793 usecs/op
+        fdatasync                           575.785 ops/sec    1737 usecs/op
+        fsync                               298.479 ops/sec    3350 usecs/op
+        fsync_writethrough                              n/a
+        open_sync                           156.339 ops/sec    6396 usecs/op
+
+Compare open_sync with different write sizes:
+(This is designed to compare the cost of writing 16kB in different write
+open_sync sizes.)
+         1 * 16kB open_sync write           284.761 ops/sec    3512 usecs/op
+         2 *  8kB open_sync writes          153.225 ops/sec    6526 usecs/op
+         4 *  4kB open_sync writes           78.529 ops/sec   12734 usecs/op
+         8 *  2kB open_sync writes           35.565 ops/sec   28118 usecs/op
+        16 *  1kB open_sync writes           18.096 ops/sec   55262 usecs/op
+
+Test if fsync on non-write file descriptor is honored:
+(If the times are similar, fsync() can sync data written on a different
+descriptor.)
+        write, fsync, close                 295.511 ops/sec    3384 usecs/op
+        write, close, fsync                 300.277 ops/sec    3330 usecs/op
+
+Non-sync'ed 8kB writes:
+        write                            144617.658 ops/sec       7 usecs/op

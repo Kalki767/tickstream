@@ -1,0 +1,38 @@
+[2026-10-03 22:19:17.160] [info] connecting to stream.binance.com:9443/stream?streams=btcusdt@trade/ethusdt@trade/solusdt@trade/bnbusdt@trade
+[2026-10-03 22:19:18.982] [info] connected
+[2026-10-03 22:19:27.160] [info] stats: 23.5 trades/s [ BNBUSDT=20.2 BTCUSDT=2.3 ETHUSDT=0.3 SOLUSDT=0.7 ] total=235 gaps=0 missing=0 reconnects=0 unparseable=0 queue=0 queue_max=6 dropped=0 written=235 commits=19
+[2026-10-03 22:19:37.160] [info] stats: 10.0 trades/s [ BNBUSDT=6.0 BTCUSDT=2.9 ETHUSDT=0.6 SOLUSDT=0.5 ] total=335 gaps=0 missing=0 reconnects=0 unparseable=0 queue=0 queue_max=6 dropped=0 written=335 commits=43
+[2026-10-03 22:19:47.160] [info] stats: 70.7 trades/s [ BNBUSDT=2.7 BTCUSDT=42.9 ETHUSDT=19.2 SOLUSDT=5.9 ] total=1042 gaps=0 missing=0 reconnects=0 unparseable=0 queue=0 queue_max=48 dropped=0 written=1042 commits=68
+[2026-10-03 22:19:57.160] [info] stats: 14.4 trades/s [ BNBUSDT=1.9 BTCUSDT=7.6 ETHUSDT=1.6 SOLUSDT=3.3 ] total=1186 gaps=0 missing=0 reconnects=0 unparseable=0 queue=0 queue_max=49 dropped=0 written=1185 commits=87
+[2026-10-03 22:20:07.161] [info] stats: 78.1 trades/s [ BNBUSDT=5.5 BTCUSDT=52.7 ETHUSDT=13.1 SOLUSDT=6.8 ] total=1967 gaps=0 missing=0 reconnects=0 unparseable=0 queue=0 queue_max=115 dropped=0 written=1967 commits=109
+[2026-10-03 22:20:17.161] [info] stats: 28.0 trades/s [ BNBUSDT=8.3 BTCUSDT=17.7 ETHUSDT=0.9 SOLUSDT=1.1 ] total=2247 gaps=0 missing=0 reconnects=0 unparseable=0 queue=0 queue_max=115 dropped=0 written=2247 commits=137
+[2026-10-03 22:20:27.161] [info] stats: 123.0 trades/s [ BNBUSDT=7.8 BTCUSDT=47.0 ETHUSDT=66.6 SOLUSDT=1.6 ] total=3477 gaps=0 missing=0 reconnects=0 unparseable=0 queue=0 queue_max=115 dropped=0 written=3474 commits=162
+[2026-10-03 22:20:37.161] [info] stats: 77.2 trades/s [ BNBUSDT=4.3 BTCUSDT=60.8 ETHUSDT=8.4 SOLUSDT=3.7 ] total=4249 gaps=0 missing=0 reconnects=0 unparseable=0 queue=0 queue_max=115 dropped=0 written=4249 commits=195
+[2026-10-03 22:20:47.161] [info] stats: 36.9 trades/s [ BNBUSDT=4.0 BTCUSDT=3.1 ETHUSDT=29.1 SOLUSDT=0.7 ] total=4618 gaps=0 missing=0 reconnects=0 unparseable=0 queue=0 queue_max=115 dropped=0 written=4618 commits=214
+[2026-10-03 22:20:57.162] [info] stats: 14.0 trades/s [ BNBUSDT=6.2 BTCUSDT=6.6 ETHUSDT=0.3 SOLUSDT=0.9 ] total=4758 gaps=0 missing=0 reconnects=0 unparseable=0 queue=0 queue_max=115 dropped=0 written=4758 commits=236
+[2026-10-03 22:21:07.162] [info] stats: 21.0 trades/s [ BNBUSDT=14.2 BTCUSDT=4.8 ETHUSDT=1.4 SOLUSDT=0.6 ] total=4968 gaps=0 missing=0 reconnects=0 unparseable=0 queue=0 queue_max=115 dropped=0 written=4968 commits=261
+[2026-10-03 22:21:17.162] [info] stats: 23.0 trades/s [ BNBUSDT=12.3 BTCUSDT=8.5 ETHUSDT=1.2 SOLUSDT=1.0 ] total=5198 gaps=0 missing=0 reconnects=0 unparseable=0 queue=0 queue_max=115 dropped=0 written=5195 commits=283
+[2026-10-03 22:21:27.162] [info] stats: 38.4 trades/s [ BNBUSDT=8.8 BTCUSDT=20.1 ETHUSDT=1.2 SOLUSDT=8.3 ] total=5582 gaps=0 missing=0 reconnects=0 unparseable=0 queue=0 queue_max=115 dropped=0 written=5582 commits=312
+[2026-10-03 22:21:37.163] [info] stats: 33.4 trades/s [ BNBUSDT=23.1 BTCUSDT=9.6 ETHUSDT=0.6 SOLUSDT=0.1 ] total=5916 gaps=0 missing=0 reconnects=0 unparseable=0 queue=0 queue_max=115 dropped=0 written=5916 commits=337
+[2026-10-03 22:21:47.163] [info] stats: 77.6 trades/s [ BNBUSDT=57.1 BTCUSDT=16.0 ETHUSDT=3.1 SOLUSDT=1.4 ] total=6692 gaps=0 missing=0 reconnects=0 unparseable=0 queue=0 queue_max=115 dropped=0 written=6691 commits=361
+[2026-10-03 22:21:57.163] [info] stats: 22.2 trades/s [ BNBUSDT=9.5 BTCUSDT=11.8 ETHUSDT=0.4 SOLUSDT=0.5 ] total=6914 gaps=0 missing=0 reconnects=0 unparseable=0 queue=0 queue_max=115 dropped=0 written=6914 commits=384
+[2026-10-03 22:22:07.163] [info] stats: 12.7 trades/s [ BNBUSDT=6.6 BTCUSDT=5.1 ETHUSDT=0.6 SOLUSDT=0.4 ] total=7041 gaps=0 missing=0 reconnects=0 unparseable=0 queue=0 queue_max=115 dropped=0 written=7041 commits=401
+[2026-10-03 22:22:17.163] [info] stats: 4.7 trades/s [ BNBUSDT=0.5 BTCUSDT=2.0 ETHUSDT=1.1 SOLUSDT=1.1 ] total=7088 gaps=0 missing=0 reconnects=0 unparseable=0 queue=0 queue_max=115 dropped=0 written=7088 commits=419
+[2026-10-03 22:22:27.164] [info] stats: 13.5 trades/s [ BNBUSDT=2.8 BTCUSDT=8.8 ETHUSDT=1.3 SOLUSDT=0.6 ] total=7223 gaps=0 missing=0 reconnects=0 unparseable=0 queue=0 queue_max=115 dropped=0 written=7223 commits=444
+[2026-10-03 22:22:37.164] [info] stats: 11.6 trades/s [ BNBUSDT=8.3 BTCUSDT=2.8 ETHUSDT=0.3 SOLUSDT=0.2 ] total=7339 gaps=0 missing=0 reconnects=0 unparseable=0 queue=0 queue_max=115 dropped=0 written=7339 commits=460
+[2026-10-03 22:22:47.164] [info] stats: 16.7 trades/s [ BNBUSDT=7.4 BTCUSDT=7.2 ETHUSDT=1.3 SOLUSDT=0.8 ] total=7506 gaps=0 missing=0 reconnects=0 unparseable=0 queue=0 queue_max=115 dropped=0 written=7439 commits=479
+[2026-10-03 22:22:57.164] [info] stats: 3.0 trades/s [ BNBUSDT=0.6 BTCUSDT=1.3 ETHUSDT=0.7 SOLUSDT=0.4 ] total=7536 gaps=0 missing=0 reconnects=0 unparseable=0 queue=0 queue_max=115 dropped=0 written=7536 commits=495
+[2026-10-03 22:23:07.164] [info] stats: 8.0 trades/s [ BNBUSDT=3.8 BTCUSDT=1.8 ETHUSDT=1.5 SOLUSDT=0.9 ] total=7616 gaps=0 missing=0 reconnects=0 unparseable=0 queue=0 queue_max=115 dropped=0 written=7615 commits=516
+[2026-10-03 22:23:17.165] [info] stats: 5.6 trades/s [ BNBUSDT=0.7 BTCUSDT=3.0 ETHUSDT=0.6 SOLUSDT=1.3 ] total=7672 gaps=0 missing=0 reconnects=0 unparseable=0 queue=0 queue_max=115 dropped=0 written=7671 commits=537
+[2026-10-03 22:23:27.165] [info] stats: 5.5 trades/s [ BNBUSDT=1.1 BTCUSDT=2.9 ETHUSDT=0.9 SOLUSDT=0.6 ] total=7727 gaps=0 missing=0 reconnects=0 unparseable=0 queue=0 queue_max=115 dropped=0 written=7727 commits=559
+[2026-10-03 22:23:37.165] [info] stats: 10.9 trades/s [ BNBUSDT=6.8 BTCUSDT=3.1 ETHUSDT=0.6 SOLUSDT=0.4 ] total=7836 gaps=0 missing=0 reconnects=0 unparseable=0 queue=0 queue_max=115 dropped=0 written=7835 commits=580
+[2026-10-03 22:23:47.165] [info] stats: 12.0 trades/s [ BNBUSDT=1.4 BTCUSDT=9.5 ETHUSDT=0.3 SOLUSDT=0.8 ] total=7956 gaps=0 missing=0 reconnects=0 unparseable=0 queue=0 queue_max=115 dropped=0 written=7955 commits=600
+[2026-10-03 22:23:57.167] [info] stats: 22.1 trades/s [ BNBUSDT=2.8 BTCUSDT=9.2 ETHUSDT=0.8 SOLUSDT=9.3 ] total=8177 gaps=0 missing=0 reconnects=0 unparseable=0 queue=0 queue_max=115 dropped=0 written=8176 commits=624
+[2026-10-03 22:24:07.167] [info] stats: 17.8 trades/s [ BNBUSDT=5.2 BTCUSDT=10.4 ETHUSDT=0.4 SOLUSDT=1.8 ] total=8355 gaps=0 missing=0 reconnects=0 unparseable=0 queue=0 queue_max=115 dropped=0 written=8355 commits=648
+[2026-10-03 22:24:17.090] [info] received signal 2, shutting down (press Ctrl+C again to force)
+[2026-10-03 22:24:17.090] [info] stopping feed client
+[2026-10-03 22:24:17.168] [info] stats: 13.7 trades/s [ BNBUSDT=8.7 BTCUSDT=1.2 ETHUSDT=0.7 SOLUSDT=3.1 ] total=8492 gaps=0 missing=0 reconnects=0 unparseable=0 queue=0 queue_max=115 dropped=0 written=8492 commits=668
+[2026-10-03 22:24:17.884] [info] connection closed (server skipped TLS close_notify)
+[2026-10-03 22:24:17.884] [info] feed stopped: total=8492 gaps=0 missing=0 reconnects=0 unparseable=0 dropped=0 queue_max=115
+[2026-10-03 22:24:17.892] [info] wrote 8492 latency samples to bench/results/phase4-latency-multirow-1000-200ms.ns
+[2026-10-03 22:24:17.892] [info] shut down

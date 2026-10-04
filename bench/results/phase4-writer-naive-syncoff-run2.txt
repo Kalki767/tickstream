@@ -1,0 +1,7 @@
+$ /tmp/claude-1000/-home-kalki-tickstream/fc9ac48c-af46-4d41-b174-5d04cc266ff1/scratchpad/tickstream-v0.4 --replay bench/data/live_capture.jsonl --replay-copies 6 --dsn dbname=tickstream_bench --flush-ms 200 --writer naive --batch-size 1 --synchronous-commit off
+[2026-10-03 21:48:04.824] [info] replay: messages=221460 trades=221460 unparseable=0 copies=6 written=221460 inserted=221460 commits=221460 elapsed_s=32.800 throughput=6752 trades/s
+[2026-10-03 21:48:04.825] [info] shut down
+verify rows: expected=221460 actual=221460 OK
+verify sum(price): expected=6084737348.04000000 actual=6084737348.04000000 OK
+verify sum(quantity): expected=100283.40822000 actual=100283.40822000 OK
+verify: PASS
