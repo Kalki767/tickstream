@@ -1,0 +1,19 @@
+# Incidental: the laptop suspended overnight during the 15-min TSan live run (started 2026-10-03 22:47:57).
+# Not a planned test. Shows: idle-timeout detection on resume, 1 s backoff reconnect, gap detection after a ~10 h freeze, under TSan.
+# The suspend start time isn't logged; the last stats line before it is shown first.
+[2026-10-03 22:55:57.252] [info] stats: 26.6 trades/s [ BNBUSDT=3.5 BTCUSDT=8.8 ETHUSDT=13.4 SOLUSDT=1.0 ] total=7497 gaps=0 missing=0 reconnects=0 unparseable=0 queue=0 queue_max=40 dropped=0 written=7413 commits=979
+[2026-10-04 08:52:37.414] [warning] read failed: The socket was closed due to a timeout
+[2026-10-04 08:52:37.414] [info] reconnecting in 1s
+[2026-10-04 08:52:38.416] [info] connecting to stream.binance.com:9443/stream?streams=btcusdt@trade/ethusdt@trade/solusdt@trade/bnbusdt@trade
+[2026-10-04 08:52:39.780] [info] connected
+[2026-10-04 08:52:40.427] [warning] gap in SOLUSDT: ids 2072206805..2072304310 missing (97506 trades)
+[2026-10-04 08:52:40.429] [warning] gap in BTCUSDT: ids 6733899309..6734123844 missing (224536 trades)
+[2026-10-04 08:52:43.231] [warning] gap in ETHUSDT: ids 4406299291..4406436792 missing (137502 trades)
+[2026-10-04 08:52:44.018] [warning] gap in BNBUSDT: ids 1597393851..1597490019 missing (96169 trades)
+[2026-10-04 08:53:38.136] [info] received signal 2, shutting down (press Ctrl+C again to force)
+[2026-10-04 08:53:38.136] [info] stopping feed client
+[2026-10-04 08:53:38.854] [info] connection closed (server skipped TLS close_notify)
+[2026-10-04 08:53:38.855] [info] feed stopped: total=8024 gaps=4 missing=555713 reconnects=1 unparseable=0 dropped=0 queue_max=40
+[2026-10-04 08:53:38.867] [info] shut down
+[2026-10-04 08:53:15.787] [info] stats: 4.1 trades/s [ BNBUSDT=0.4 BTCUSDT=2.5 ETHUSDT=0.5 SOLUSDT=0.7 ] total=7646 gaps=4 missing=555713 reconnects=1 unparseable=0 queue=0 queue_max=40 dropped=0 written=7646 commits=1059
+TSan reports in the whole run (lines starting 'WARNING: ThreadSanitizer:'): 0

@@ -1,0 +1,23 @@
+$ valgrind --leak-check=full --show-leak-kinds=all --errors-for-leak-kinds=definite --error-exitcode=99 ./build/tickstream --replay bench/data/sample_capture.jsonl --dsn dbname=tickstream_bench
+# valgrind 3.22.0 (Ubuntu .deb, user prefix); RelWithDebInfo build; no suppressions file
+==64879== Memcheck, a memory error detector
+==64879== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
+==64879== Using Valgrind-3.22.0 and LibVEX; rerun with -h for copyright info
+==64879== Command: ./build/tickstream --replay bench/data/sample_capture.jsonl --dsn dbname=tickstream_bench
+==64879== 
+[2026-10-03 22:48:21.073] [info] replay: messages=1000 trades=1000 unparseable=0 copies=1 written=1000 inserted=1000 commits=1 elapsed_s=0.456 throughput=2194 trades/s
+[2026-10-03 22:48:21.135] [info] shut down
+==64879== 
+==64879== HEAP SUMMARY:
+==64879==     in use at exit: 0 bytes in 0 blocks
+==64879==   total heap usage: 40,561 allocs, 40,561 frees, 13,362,293 bytes allocated
+==64879== 
+==64879== All heap blocks were freed -- no leaks are possible
+==64879== 
+==64879== For lists of detected and suppressed errors, rerun with: -s
+==64879== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+valgrind exit status: 0
+verify rows: expected=1000 actual=1000 OK
+verify sum(price): expected=33112037.90000000 actual=33112037.90000000 OK
+verify sum(quantity): expected=711.79995000 actual=711.79995000 OK
+verify: PASS

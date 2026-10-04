@@ -1,0 +1,5 @@
+$ ctest --test-dir build-asan --output-on-failure   (-fsanitize=address,undefined -fno-sanitize-recover=all)
+
+100% tests passed, 0 tests failed out of 82
+
+Total Test time (real) =   3.19 sec

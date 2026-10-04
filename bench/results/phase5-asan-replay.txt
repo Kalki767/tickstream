@@ -1,0 +1,9 @@
+$  ./build-asan/tickstream --replay bench/data/live_capture.jsonl --replay-copies 2 --dsn dbname=tickstream_bench   (default writer: multirow 1000 / 200 ms)
+replay: messages=73820 trades=73820 unparseable=0 copies=2 written=73820 inserted=73820 commits=74 elapsed_s=6.124 throughput=12054 trades/s
+shut down
+process exit status: 0
+verify rows: expected=73820 actual=73820 OK
+verify sum(price): expected=2028245782.68000000 actual=2028245782.68000000 OK
+verify sum(quantity): expected=33427.80274000 actual=33427.80274000 OK
+verify: PASS
+sanitizer reports in output: see above (none means none printed)

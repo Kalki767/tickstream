@@ -1,0 +1,10 @@
+# Positive controls: each program has one deliberate bug, built with the project's sanitizer flags at -O2.
+# (A first version of the UBSan control computed abs(x + 1) > 0; at -O1 GCC folded the overflow away and nothing fired, so the control was rewritten to use the overflowed value.)
+$ setarch -R ./race  (-fsanitize=thread)
+WARNING: ThreadSanitizer: data race (pid=64052)
+SUMMARY: ThreadSanitizer: data race /tmp/claude-1000/-home-kalki-tickstream/fc9ac48c-af46-4d41-b174-5d04cc266ff1/scratchpad/race.cpp:3 in main
+$ ./uaf  (-fsanitize=address,undefined)
+==64063==ERROR: AddressSanitizer: heap-use-after-free on address 0x503000000048 at pc 0x5fcd52b94707 bp 0x7fff6cb14250 sp 0x7fff6cb14240
+SUMMARY: AddressSanitizer: heap-use-after-free /usr/include/c++/13/bits/basic_string.h:1072 in std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::size() const
+$ ./ub  (-fsanitize=address,undefined)
+ub.cpp:3:52: runtime error: signed integer overflow: 2147483647 + 1 cannot be represented in type 'int'

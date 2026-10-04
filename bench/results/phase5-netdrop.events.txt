@@ -1,0 +1,4 @@
+# 2026-10-04 08:54:26.345 started ./build-asan/tickstream in container (total 1800s, drop at 600s for 60s)
+2026-10-04 09:04:26.740 DROP ON  (iptables: OUTPUT dport 9443 and INPUT sport 9443 -> DROP)
+2026-10-04 09:05:26.983 DROP OFF (rules removed)
+2026-10-04 09:24:27.186 container exit status: 0

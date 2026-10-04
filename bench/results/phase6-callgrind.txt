@@ -1,0 +1,118 @@
+# callgrind (Valgrind 3.22), RelWithDebInfo build, DOM parser (parse_trade's implementation at this commit)
+# perf is unavailable: kernel.perf_event_paranoid=4 and no root. callgrind counts instructions executed in the process (both threads); time spent waiting on Postgres or I/O is not instructions and does not appear.
+$ valgrind --tool=callgrind ./build/tickstream --replay bench/data/sample_capture.jsonl --replay-copies 5 --dsn dbname=tickstream_bench
+replay: messages=5000 trades=5000 unparseable=0 copies=5 written=5000 inserted=5000 commits=5 elapsed_s=2.164 throughput=2311 trades/s
+
+$ callgrind_annotate --inclusive=yes  (inclusive cost)
+203,236,575 (100.0%)  PROGRAM TOTALS
+
+--------------------------------------------------------------------------------
+Ir                    file:function
+--------------------------------------------------------------------------------
+173,425,821 (85.33%)  ???:0x000000000001f540 [/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2]
+166,015,867 (81.69%)  ???:(below main) [/home/kalki/tickstream/build/tickstream]
+166,015,855 (81.69%)  ./csu/../csu/libc-start.c:__libc_start_main@@GLIBC_2.34 [/usr/lib/x86_64-linux-gnu/libc.so.6]
+165,897,937 (81.63%)  ./csu/../sysdeps/nptl/libc_start_call_main.h:(below main) [/usr/lib/x86_64-linux-gnu/libc.so.6]
+165,685,684 (81.52%)  /home/kalki/tickstream/src/main.cpp:main
+161,871,450 (79.65%)  src/main.cpp:main [/home/kalki/tickstream/build/tickstream]
+158,136,473 (77.81%)  /home/kalki/tickstream/src/replay.cpp:tickstream::replay(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, 
+155,785,904 (76.65%)  src/replay.cpp:tickstream::replay(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>,
+155,344,867 (76.44%)  /home/kalki/tickstream/src/binance.cpp:tickstream::binance::parse_trade(std::basic_string_view<char, std::char_traits<char> >)
+155,344,867 (76.44%)  src/binance.cpp:tickstream::binance::parse_trade(std::basic_string_view<char, std::char_traits<char> >) [/home/kalki/tickstream/build/tickstream]
+155,269,867 (76.40%)  src/binance.cpp:tickstream::binance::parse_trade_dom(std::basic_string_view<char, std::char_traits<char> >) [/home/kalki/tickstream/build/tickstream]
+140,874,867 (69.32%)  build/_deps/json-src/include/nlohmann/json.hpp:tickstream::binance::parse_trade_dom(std::basic_string_view<char, std::char_traits<char> >)
+113,134,718 (55.67%)  /home/kalki/tickstream/build/_deps/json-src/include/nlohmann/detail/input/parser.hpp:nlohmann::json_abi_v3_11_3::detail::parser<nlohmann::json_abi_v3_11_3::basic_json<std::map, std::vector, std::__c
+112,564,718 (55.39%)  build/_deps/json-src/include/nlohmann/detail/input/parser.hpp:nlohmann::json_abi_v3_11_3::detail::parser<nlohmann::json_abi_v3_11_3::basic_json<std::map, std::vector, std::__cxx11::basic_string<char
+112,019,718 (55.12%)  build/_deps/json-src/include/nlohmann/detail/input/parser.hpp:bool nlohmann::json_abi_v3_11_3::detail::parser<nlohmann::json_abi_v3_11_3::basic_json<std::map, std::vector, std::__cxx11::basic_string
+ 79,522,845 (39.13%)  /home/kalki/tickstream/build/_deps/json-src/include/nlohmann/detail/input/lexer.hpp:nlohmann::json_abi_v3_11_3::detail::lexer<nlohmann::json_abi_v3_11_3::basic_json<std::map, std::vector, std::__cxx
+ 79,057,845 (38.90%)  build/_deps/json-src/include/nlohmann/detail/input/lexer.hpp:nlohmann::json_abi_v3_11_3::detail::lexer<nlohmann::json_abi_v3_11_3::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, 
+ 37,399,335 (18.40%)  build/_deps/json-src/include/nlohmann/detail/input/lexer.hpp:nlohmann::json_abi_v3_11_3::detail::lexer<nlohmann::json_abi_v3_11_3::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, 
+ 34,984,845 (17.21%)  build/_deps/json-src/include/nlohmann/detail/input/lexer.hpp:nlohmann::json_abi_v3_11_3::detail::lexer<nlohmann::json_abi_v3_11_3::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, 
+ 29,810,747 (14.67%)  ./nptl/./nptl/pthread_create.c:start_thread [/usr/lib/x86_64-linux-gnu/libc.so.6]
+ 29,806,893 (14.67%)  ???:0x00000000000ecda0 [/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33]
+ 29,806,768 (14.67%)  /usr/include/c++/13/bits/std_thread.h:std::thread::_State_impl<std::thread::_Invoker<std::tuple<main::{lambda()#1}> > >::_M_run() [/home/kalki/tickstream/build/tickstream]
+ 29,806,752 (14.67%)  src/main.cpp:std::thread::_State_impl<std::thread::_Invoker<std::tuple<main::{lambda()#1}> > >::_M_run()
+ 29,806,737 (14.67%)  /home/kalki/tickstream/src/writer_loop.cpp:tickstream::run_writer(tickstream::BoundedQueue<tickstream::Trade>&, tickstream::TradeSink&, tickstream::FlushPolicy const&, tickstream::WriterStats&, std:
+ 29,560,149 (14.54%)  build/_deps/json-src/include/nlohmann/json.hpp:nlohmann::json_abi_v3_11_3::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, lo
+ 29,009,917 (14.27%)  src/writer_loop.cpp:tickstream::run_writer(tickstream::BoundedQueue<tickstream::Trade>&, tickstream::TradeSink&, tickstream::FlushPolicy const&, tickstream::WriterStats&, std::vector<long, std::allo
+ 26,686,111 (13.13%)  src/writer_loop.cpp:tickstream::run_writer(tickstream::BoundedQueue<tickstream::Trade>&, tickstream::TradeSink&, tickstream::FlushPolicy const&, tickstream::WriterStats&, std::vector<long, std::allo
+ 26,610,641 (13.09%)  /home/kalki/tickstream/src/pg_writer.cpp:tickstream::PgWriter::write(std::span<tickstream::Trade const, 18446744073709551615ul>)
+ 26,610,641 (13.09%)  src/pg_writer.cpp:tickstream::PgWriter::write(std::span<tickstream::Trade const, 18446744073709551615ul>) [/home/kalki/tickstream/build/tickstream]
+ 26,610,606 (13.09%)  src/pg_writer.cpp:tickstream::PgWriter::write_multirow(std::span<tickstream::Trade const, 18446744073709551615ul>) [/home/kalki/tickstream/build/tickstream]
+ 24,556,749 (12.08%)  build/_deps/json-src/include/nlohmann/detail/input/json_sax.hpp:bool nlohmann::json_abi_v3_11_3::detail::parser<nlohmann::json_abi_v3_11_3::basic_json<std::map, std::vector, std::__cxx11::basic_stri
+ 19,980,000 ( 9.83%)  build/_deps/json-src/include/nlohmann/detail/input/lexer.hpp:nlohmann::json_abi_v3_11_3::detail::lexer<nlohmann::json_abi_v3_11_3::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, 
+ 19,101,907 ( 9.40%)  ???:0x000000000012b6a0 [???]
+ 19,046,293 ( 9.37%)  /usr/include/c++/13/bits/stl_map.h:std::map<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, nlohmann::json_abi_v3_11_3::basic_json<std::map, std::vector, std::__cxx1
+ 18,751,643 ( 9.23%)  ???:operator delete(void*, unsigned long) [/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33]
+ 18,401,553 ( 9.05%)  ???:0x0000000004f0a430 [???]
+ 18,050,540 ( 8.88%)  ???:operator delete(void*) [/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33]
+ 17,700,274 ( 8.71%)  ???:0x0000000004f0ac60 [???]
+ 17,579,881 ( 8.65%)  ./malloc/./malloc/malloc.c:free [/usr/lib/x86_64-linux-gnu/libc.so.6]
+ 15,436,650 ( 7.60%)  /usr/include/c++/13/bits/basic_string.h:std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::push_back(char) [/home/kalki/tickstream/build/tickstream]
+ 15,025,210 ( 7.39%)  ???:0x000000000012b750 [???]
+ 14,675,296 ( 7.22%)  ???:operator new(unsigned long) [/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33]
+ 11,982,680 ( 5.90%)  ./malloc/./malloc/malloc.c:_int_free [/usr/lib/x86_64-linux-gnu/libc.so.6]
+ 11,874,344 ( 5.84%)  ???:0x0000000004f0a210 [???]
+ 11,705,908 ( 5.76%)  ./malloc/./malloc/malloc.c:malloc [/usr/lib/x86_64-linux-gnu/libc.so.6]
+ 10,935,000 ( 5.38%)  build/_deps/json-src/include/nlohmann/json.hpp:nlohmann::json_abi_v3_11_3::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, lo
+  9,935,000 ( 4.89%)  /usr/include/c++/13/bits/stl_tree.h:nlohmann::json_abi_v3_11_3::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigne
+  9,771,168 ( 4.81%)  /home/kalki/tickstream/build/_deps/libpqxx-src/include/pqxx/params.hxx:void pqxx::params::append<long>(long const&) &
+  9,008,218 ( 4.43%)  build/_deps/libpqxx-src/include/pqxx/transaction_base.hxx:tickstream::PgWriter::write_multirow(std::span<tickstream::Trade const, 18446744073709551615ul>)
+  8,875,000 ( 4.37%)  /usr/include/c++/13/bits/stl_tree.h:std::_Rb_tree<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, 
+  7,895,000 ( 3.88%)  /usr/include/c++/13/bits/stl_tree.h:std::map<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, nlohmann::json_abi_v3_11_3::basic_json<std::map, std::vector, std::__cxx
+  7,740,149 ( 3.81%)  /usr/include/c++/13/bits/stl_vector.h:nlohmann::json_abi_v3_11_3::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsig
+  7,708,786 ( 3.79%)  /home/kalki/tickstream/build/_deps/libpqxx-src/src/transaction_base.cxx:pqxx::transaction_base::internal_exec_prepared(pqxx::zview, pqxx::internal::c_params const&)
+  7,707,666 ( 3.79%)  build/_deps/libpqxx-src/include/pqxx/internal/gates/connection-transaction.hxx:pqxx::transaction_base::internal_exec_prepared(pqxx::zview, pqxx::internal::c_params const&)
+  7,707,641 ( 3.79%)  /home/kalki/tickstream/build/_deps/libpqxx-src/src/connection.cxx:pqxx::connection::exec_prepared(std::basic_string_view<char, std::char_traits<char> >, pqxx::internal::c_params const&)
+  7,706,966 ( 3.79%)  build/_deps/libpqxx-src/src/connection.cxx:pqxx::connection::exec_prepared(std::basic_string_view<char, std::char_traits<char> >, pqxx::internal::c_params const&) [/home/kalki/tickstream/build/ticks
+  7,703,681 ( 3.79%)  ???:0x000000000012bf70 [???]
+  7,703,671 ( 3.79%)  ???:PQexecPrepared [/usr/lib/x86_64-linux-gnu/libpq.so.5.16]
+  7,696,796 ( 3.79%)  ???:PQsendQueryPrepared [/usr/lib/x86_64-linux-gnu/libpq.so.5.16]
+  7,696,116 ( 3.79%)  ???:0x0000000000020560 [/usr/lib/x86_64-linux-gnu/libpq.so.5.16]
+  7,500,149 ( 3.69%)  /usr/include/c++/13/bits/vector.tcc:nlohmann::json_abi_v3_11_3::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigne
+  6,860,000 ( 3.38%)  /home/kalki/tickstream/build/_deps/json-src/include/nlohmann/json.hpp:nlohmann::json_abi_v3_11_3::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allo
+  6,609,121 ( 3.25%)  ./elf/./elf/rtld.c:_dl_start [/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2]
+  6,608,448 ( 3.25%)  ./elf/../sysdeps/unix/sysv/linux/dl-sysdep.c:_dl_sysdep_start [/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2]
+  6,544,930 ( 3.22%)  ./elf/./elf/rtld.c:dl_main [/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2]
+
+$ callgrind_annotate  (self cost)
+203,236,575 (100.0%)  PROGRAM TOTALS
+
+--------------------------------------------------------------------------------
+Ir                   file:function
+--------------------------------------------------------------------------------
+22,491,830 (11.07%)  build/_deps/json-src/include/nlohmann/detail/input/lexer.hpp:nlohmann::json_abi_v3_11_3::detail::lexer<nlohmann::json_abi_v3_11_3::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, s
+13,892,985 ( 6.84%)  /usr/include/c++/13/bits/basic_string.h:std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::push_back(char) [/home/kalki/tickstream/build/tickstream]
+10,767,200 ( 5.30%)  build/_deps/json-src/include/nlohmann/detail/input/lexer.hpp:nlohmann::json_abi_v3_11_3::detail::lexer<nlohmann::json_abi_v3_11_3::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, s
+10,606,699 ( 5.22%)  ./malloc/./malloc/malloc.c:_int_free [/usr/lib/x86_64-linux-gnu/libc.so.6]
+ 8,104,749 ( 3.99%)  ./malloc/./malloc/malloc.c:malloc [/usr/lib/x86_64-linux-gnu/libc.so.6]
+ 7,500,000 ( 3.69%)  build/_deps/json-src/include/nlohmann/json.hpp:nlohmann::json_abi_v3_11_3::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, lon
+ 6,574,660 ( 3.23%)  build/_deps/json-src/include/nlohmann/detail/input/lexer.hpp:nlohmann::json_abi_v3_11_3::detail::lexer<nlohmann::json_abi_v3_11_3::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, s
+ 4,947,557 ( 2.43%)  ./malloc/./malloc/malloc.c:free [/usr/lib/x86_64-linux-gnu/libc.so.6]
+ 4,904,406 ( 2.41%)  ./stdlib/../stdlib/strtol_l.c:____strtoul_l_internal [/usr/lib/x86_64-linux-gnu/libc.so.6]
+ 4,551,284 ( 2.24%)  ./string/../sysdeps/x86_64/multiarch/memcmp-avx2-movbe.S:__memcmp_avx2_movbe [/usr/lib/x86_64-linux-gnu/libc.so.6]
+ 4,532,665 ( 2.23%)  ./string/../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:__memcpy_avx_unaligned_erms [/usr/lib/x86_64-linux-gnu/libc.so.6]
+ 4,070,000 ( 2.00%)  build/_deps/json-src/include/nlohmann/json.hpp:nlohmann::json_abi_v3_11_3::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, lon
+ 3,661,820 ( 1.80%)  /usr/include/c++/13/bits/vector.tcc:nlohmann::json_abi_v3_11_3::detail::lexer<nlohmann::json_abi_v3_11_3::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, st
+ 3,410,876 ( 1.68%)  ./malloc/./malloc/malloc.c:_int_malloc [/usr/lib/x86_64-linux-gnu/libc.so.6]
+ 3,200,000 ( 1.57%)  /usr/include/c++/13/bits/charconv.h:char* (anonymous namespace)::wrap_to_chars<long>(char*, char*, long const&) [clone .isra.0]
+ 3,151,920 ( 1.55%)  ???:0x000000000001bda0 [/usr/lib/x86_64-linux-gnu/libpq.so.5.16]
+ 2,845,002 ( 1.40%)  ./elf/./elf/dl-lookup.c:do_lookup_x [/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2]
+ 2,802,128 ( 1.38%)  ???:operator new(unsigned long) [/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33]
+ 2,610,000 ( 1.28%)  build/_deps/json-src/include/nlohmann/detail/input/lexer.hpp:nlohmann::json_abi_v3_11_3::detail::lexer<nlohmann::json_abi_v3_11_3::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, s
+ 2,528,865 ( 1.24%)  build/_deps/json-src/include/nlohmann/detail/input/input_adapters.hpp:nlohmann::json_abi_v3_11_3::detail::lexer<nlohmann::json_abi_v3_11_3::basic_json<std::map, std::vector, std::__cxx11::basic_strin
+ 1,805,000 ( 0.89%)  build/_deps/json-src/include/nlohmann/detail/input/parser.hpp:bool nlohmann::json_abi_v3_11_3::detail::parser<nlohmann::json_abi_v3_11_3::basic_json<std::map, std::vector, std::__cxx11::basic_string<
+ 1,715,000 ( 0.84%)  /usr/include/c++/13/bits/stl_tree.h:std::_Rb_tree<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, s
+ 1,675,910 ( 0.82%)  /usr/include/c++/13/bits/stl_iterator_base_funcs.h:nlohmann::json_abi_v3_11_3::detail::lexer<nlohmann::json_abi_v3_11_3::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_t
+ 1,675,000 ( 0.82%)  /usr/include/c++/13/bits/stl_tree.h:std::map<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, nlohmann::json_abi_v3_11_3::basic_json<std::map, std::vector, std::__cxx1
+ 1,640,000 ( 0.81%)  ???:std::_Rb_tree_insert_and_rebalance(bool, std::_Rb_tree_node_base*, std::_Rb_tree_node_base*, std::_Rb_tree_node_base&) [/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33]
+ 1,543,665 ( 0.76%)  /usr/include/c++/13/bits/char_traits.h:std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::push_back(char)
+ 1,506,285 ( 0.74%)  ???:0x0000000000020560 [/usr/lib/x86_64-linux-gnu/libpq.so.5.16]
+ 1,310,721 ( 0.64%)  /usr/include/c++/13/bits/stl_construct.h:tickstream::BoundedQueue<tickstream::Trade>::BoundedQueue(unsigned long)
+ 1,275,000 ( 0.63%)  /usr/include/c++/13/bits/vector.tcc:nlohmann::json_abi_v3_11_3::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned
+ 1,260,000 ( 0.62%)  /usr/include/c++/13/bits/char_traits.h:nlohmann::json_abi_v3_11_3::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsig
+ 1,225,000 ( 0.60%)  /usr/include/c++/13/bits/char_traits.h:std::map<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, nlohmann::json_abi_v3_11_3::basic_json<std::map, std::vector, std::__c
+ 1,188,710 ( 0.58%)  ./string/../sysdeps/x86_64/multiarch/strlen-avx2.S:__strlen_avx2 [/usr/lib/x86_64-linux-gnu/libc.so.6]
+ 1,135,000 ( 0.56%)  /usr/include/c++/13/bits/stl_map.h:std::map<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, nlohmann::json_abi_v3_11_3::basic_json<std::map, std::vector, std::__cxx11
+ 1,120,000 ( 0.55%)  /usr/include/c++/13/bits/stl_bvector.h:bool nlohmann::json_abi_v3_11_3::detail::parser<nlohmann::json_abi_v3_11_3::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<
+   980,000 ( 0.48%)  build/_deps/json-src/include/nlohmann/json.hpp:nlohmann::json_abi_v3_11_3::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, lon

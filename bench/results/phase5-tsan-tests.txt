@@ -1,0 +1,14 @@
+$ ctest --test-dir build-tsan --output-on-failure   (-fsanitize=thread; launched via setarch -R)
+
+100% tests passed, 0 tests failed out of 82
+
+Total Test time (real) =   3.01 sec
+
+$ ctest --test-dir build-tsan -R "BoundedQueue|WriterLoop|Replay" --repeat until-fail:20
+
+100% tests passed, 0 tests failed out of 16
+
+Total Test time (real) =  32.11 sec
+
+$ grep -c "WARNING: ThreadSanitizer" in full ctest log
+0

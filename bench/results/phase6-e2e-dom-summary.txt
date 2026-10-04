@@ -1,0 +1,7 @@
+# writer benchmark: 2026-10-04T09:25:45+03:00
+# commit 0d54def, build type RelWithDebInfo
+# capture bench/data/live_capture.jsonl x 6 copies, 3 runs per config, median reported
+# power: AC online=0, governor=powersave, loadavg=1.87 1.92 2.10
+config                 run1       run2       run3     median  verify
+null-1000            122752     117347     119357     119357  n/a(null) 
+multirow-1000         17460      19965      21242      19965  PASS 

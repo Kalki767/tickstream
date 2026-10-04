@@ -1,0 +1,23 @@
+drop on:     2026-10-04 09:04:26.740000
+drop off:    2026-10-04 09:05:26.983000  (drop lasted 60.243 s)
+detected:    2026-10-04 09:04:46.718000  +19.978 s after drop  [read failed: The socket was closed due to a timeout]
+reconnect attempts while down:
+  09:04:57.741000  tcp connect failed: The socket was closed due to a timeout
+  09:04:57.741000  reconnecting in 2s
+  09:05:09.746000  tcp connect failed: The socket was closed due to a timeout
+  09:05:09.746000  reconnecting in 4s
+  09:05:23.751000  tcp connect failed: The socket was closed due to a timeout
+  09:05:23.752000  reconnecting in 8s
+reconnected: 2026-10-04 09:05:33.176000  +6.193 s after restore
+total outage (drop on -> connected): 66.436 s
+  09:05:33.400000  gap in SOLUSDT: ids 2072305414..2072305562 missing (149 trades)
+  09:05:33.408000  gap in BTCUSDT: ids 6734128167..6734128426 missing (260 trades)
+  09:05:34.063000  gap in BNBUSDT: ids 1597493476..1597493881 missing (406 trades)
+  09:05:34.104000  gap in ETHUSDT: ids 4406437988..4406438125 missing (138 trades)
+gaps reported after reconnect: 4, missing trades: 953
+end: 2026-10-04 09:24:28.125000  feed stopped: total=31392 gaps=4 missing=953 reconnects=4 unparseable=0 dropped=0 queue_max=213
+end: 2026-10-04 09:24:28.151000  shut down
+$ grep -cE "ERROR: AddressSanitizer|runtime error|ERROR: LeakSanitizer" bench/results/phase5-netdrop.log
+0
+$ psql -d tickstream_live -Atc "select count(*) from trades"   (service reported total=31392)
+31392

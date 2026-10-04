@@ -1,0 +1,8 @@
+# TSan build, before adding the setarch -R launcher: gtest_discover_tests runs the test binary at build time
+$ ./build-tsan/tickstream_tests --gtest_list_tests   (ASLR on)
+FATAL: ThreadSanitizer: unexpected memory mapping 0x62065b4e5000-0x62065b4f5000
+
+$ setarch x86_64 -R ./build-tsan/tickstream_tests --gtest_list_tests | head -3
+Running main() from /home/kalki/tickstream/build-tsan/_deps/googletest-src/googletest/src/gtest_main.cc
+CombinedStreamTarget.
+  JoinsAndLowercasesSymbols
