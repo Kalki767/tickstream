@@ -1,0 +1,7 @@
+build*/
+.git/
+bench/data/
+bench/results/
+*.md
+stream_db.py
+schema.sql
