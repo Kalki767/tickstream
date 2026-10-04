@@ -1,0 +1,128 @@
+# 2026-10-04T09:07:52+03:00  rows=10002610  window: last hour before 2026-10-06 16:25:32.428+03
+# PostgreSQL 16.15 (Ubuntu 16.15-0ubuntu0.24.04.1), shared_buffers=128MB
+
+NOTICE:  index "trades_symbol_event_time_idx" does not exist, skipping
+DROP INDEX
+===== BEFORE (only the primary key (symbol, trade_id)) =====
+--- A one symbol, before: plan (run 1)
+Finalize GroupAggregate  (cost=188889.35..195247.12 rows=36874 width=48) (actual time=638.559..647.087 rows=61 loops=1)
+  Group Key: (date_trunc('minute'::text, event_time))
+  Buffers: shared hit=12277 read=90961
+  ->  Gather Merge  (cost=188889.35..193934.87 rows=38318 width=80) (actual time=638.215..646.765 rows=155 loops=1)
+        Workers Planned: 2
+        Workers Launched: 2
+        Buffers: shared hit=12277 read=90961
+        ->  Partial GroupAggregate  (cost=187889.33..188511.99 rows=19159 width=80) (actual time=611.328..617.535 rows=52 loops=3)
+              Group Key: (date_trunc('minute'::text, event_time))
+              Buffers: shared hit=12277 read=90961
+              ->  Sort  (cost=187889.33..187937.22 rows=19159 width=20) (actual time=610.972..611.769 rows=15185 loops=3)
+                    Sort Key: (date_trunc('minute'::text, event_time))
+                    Sort Method: quicksort  Memory: 885kB
+                    Buffers: shared hit=12277 read=90961
+                    Worker 0:  Sort Method: quicksort  Memory: 944kB
+                    Worker 1:  Sort Method: quicksort  Memory: 1844kB
+                    ->  Parallel Seq Scan on trades  (cost=0.00..186526.57 rows=19159 width=20) (actual time=595.152..607.062 rows=15185 loops=3)
+                          Filter: ((event_time < '2026-10-06 16:25:32.428+03'::timestamp with time zone) AND (symbol = 'BTCUSDT'::text) AND (event_time >= ('2026-10-06 16:25:32.428+03'::timestamp with time zone - '01:00:00'::interval)))
+                          Rows Removed by Filter: 3319018
+                          Buffers: shared hit=12163 read=90961
+Planning:
+  Buffers: shared hit=133
+Planning Time: 0.458 ms
+JIT:
+  Functions: 30
+  Options: Inlining false, Optimization false, Expressions true, Deforming true
+  Timing: Generation 3.293 ms, Inlining 0.000 ms, Optimization 1.394 ms, Emission 44.049 ms, Total 48.736 ms
+Execution Time: 663.453 ms
+--- A one symbol, before: execution time runs: 663.453 637.012 625.910 ms -> median 637.012 ms
+--- A one symbol, before: result rows: 61
+--- B all symbols, before: plan (run 1)
+Finalize GroupAggregate  (cost=182157.51..203337.56 rows=125030 width=56) (actual time=669.937..708.365 rows=244 loops=1)
+  Group Key: symbol, (date_trunc('minute'::text, event_time))
+  Buffers: shared hit=12766 read=90488, temp read=251 written=252
+  ->  Gather Merge  (cost=182157.51..198663.85 rows=124178 width=88) (actual time=669.901..707.256 rows=587 loops=1)
+        Workers Planned: 2
+        Workers Launched: 2
+        Buffers: shared hit=12766 read=90488, temp read=251 written=252
+        ->  Partial GroupAggregate  (cost=181157.48..183330.60 rows=62089 width=88) (actual time=623.184..653.122 rows=196 loops=3)
+              Group Key: symbol, (date_trunc('minute'::text, event_time))
+              Buffers: shared hit=12766 read=90488, temp read=251 written=252
+              ->  Sort  (cost=181157.48..181312.71 rows=62089 width=28) (actual time=622.939..628.159 rows=49213 loops=3)
+                    Sort Key: symbol, (date_trunc('minute'::text, event_time))
+                    Sort Method: quicksort  Memory: 3839kB
+                    Buffers: shared hit=12766 read=90488, temp read=251 written=252
+                    Worker 0:  Sort Method: quicksort  Memory: 3808kB
+                    Worker 1:  Sort Method: external merge  Disk: 2008kB
+                    ->  Parallel Seq Scan on trades  (cost=0.00..176214.56 rows=62089 width=28) (actual time=557.471..578.885 rows=49213 loops=3)
+                          Filter: ((event_time < '2026-10-06 16:25:32.428+03'::timestamp with time zone) AND (event_time >= ('2026-10-06 16:25:32.428+03'::timestamp with time zone - '01:00:00'::interval)))
+                          Rows Removed by Filter: 3284990
+                          Buffers: shared hit=12636 read=90488
+Planning:
+  Buffers: shared hit=132
+Planning Time: 0.453 ms
+JIT:
+  Functions: 30
+  Options: Inlining false, Optimization false, Expressions true, Deforming true
+  Timing: Generation 11.379 ms, Inlining 0.000 ms, Optimization 2.396 ms, Emission 52.256 ms, Total 66.031 ms
+Execution Time: 726.938 ms
+--- B all symbols, before: execution time runs: 726.938 783.631 780.766 ms -> median 780.766 ms
+--- B all symbols, before: result rows: 244
+
+===== CREATE INDEX trades_symbol_event_time_idx ON trades (symbol, event_time DESC) =====
+CREATE INDEX
+Time: 21049.235 ms (00:21.049)
+Time: 352.666 ms
+index size: 116 MB
+
+===== AFTER =====
+--- A one symbol, after: plan (run 1)
+GroupAggregate  (cost=86419.33..87806.42 rows=35864 width=48) (actual time=33.078..54.913 rows=61 loops=1)
+  Group Key: (date_trunc('minute'::text, event_time))
+  Buffers: shared hit=1352
+  ->  Sort  (cost=86419.33..86530.97 rows=44654 width=20) (actual time=32.918..35.552 rows=45556 loops=1)
+        Sort Key: (date_trunc('minute'::text, event_time))
+        Sort Method: quicksort  Memory: 3501kB
+        Buffers: shared hit=1352
+        ->  Bitmap Heap Scan on trades  (cost=837.78..82970.59 rows=44654 width=20) (actual time=2.754..22.137 rows=45556 loops=1)
+              Recheck Cond: ((symbol = 'BTCUSDT'::text) AND (event_time >= ('2026-10-06 16:25:32.428+03'::timestamp with time zone - '01:00:00'::interval)) AND (event_time < '2026-10-06 16:25:32.428+03'::timestamp with time zone))
+              Heap Blocks: exact=1270
+              Buffers: shared hit=1349
+              ->  Bitmap Index Scan on trades_symbol_event_time_idx  (cost=0.00..826.61 rows=44654 width=0) (actual time=2.549..2.550 rows=45556 loops=1)
+                    Index Cond: ((symbol = 'BTCUSDT'::text) AND (event_time >= ('2026-10-06 16:25:32.428+03'::timestamp with time zone - '01:00:00'::interval)) AND (event_time < '2026-10-06 16:25:32.428+03'::timestamp with time zone))
+                    Buffers: shared hit=79
+Planning:
+  Buffers: shared hit=154
+Planning Time: 0.694 ms
+Execution Time: 55.362 ms
+--- A one symbol, after: execution time runs: 55.362 61.335 50.158 ms -> median 55.362 ms
+--- A one symbol, after: result rows: 61
+--- B all symbols, after: plan (run 1)
+Finalize GroupAggregate  (cost=181945.25..202316.43 rows=120553 width=56) (actual time=859.815..915.539 rows=244 loops=1)
+  Group Key: symbol, (date_trunc('minute'::text, event_time))
+  Buffers: shared hit=13342 read=89912, temp read=524 written=526
+  ->  Gather Merge  (cost=181945.25..197815.94 rows=119396 width=88) (actual time=859.176..914.488 rows=328 loops=1)
+        Workers Planned: 2
+        Workers Launched: 2
+        Buffers: shared hit=13342 read=89912, temp read=524 written=526
+        ->  Partial GroupAggregate  (cost=180945.22..183034.65 rows=59698 width=88) (actual time=795.924..832.118 rows=109 loops=3)
+              Group Key: symbol, (date_trunc('minute'::text, event_time))
+              Buffers: shared hit=13342 read=89912, temp read=524 written=526
+              ->  Sort  (cost=180945.22..181094.47 rows=59698 width=28) (actual time=795.690..804.764 rows=49213 loops=3)
+                    Sort Key: symbol, (date_trunc('minute'::text, event_time))
+                    Sort Method: external merge  Disk: 2064kB
+                    Buffers: shared hit=13342 read=89912, temp read=524 written=526
+                    Worker 0:  Sort Method: quicksort  Memory: 3286kB
+                    Worker 1:  Sort Method: external merge  Disk: 2128kB
+                    ->  Parallel Seq Scan on trades  (cost=0.00..176209.56 rows=59698 width=28) (actual time=43.137..724.353 rows=49213 loops=3)
+                          Filter: ((event_time < '2026-10-06 16:25:32.428+03'::timestamp with time zone) AND (event_time >= ('2026-10-06 16:25:32.428+03'::timestamp with time zone - '01:00:00'::interval)))
+                          Rows Removed by Filter: 3284990
+                          Buffers: shared hit=13212 read=89912
+Planning:
+  Buffers: shared hit=153
+Planning Time: 0.700 ms
+JIT:
+  Functions: 30
+  Options: Inlining false, Optimization false, Expressions true, Deforming true
+  Timing: Generation 6.131 ms, Inlining 0.000 ms, Optimization 2.607 ms, Emission 85.694 ms, Total 94.432 ms
+Execution Time: 940.464 ms
+--- B all symbols, after: execution time runs: 940.464 846.588 788.735 ms -> median 846.588 ms
+--- B all symbols, after: result rows: 244

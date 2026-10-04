@@ -1,0 +1,28 @@
+$ docker compose up -d --build   (POSTGRES_PASSWORD generated into .env, not committed)
+ Container tickstream-e2e-postgres-1 Waiting 
+ Container tickstream-e2e-postgres-1 Healthy 
+ Container tickstream-e2e-tickstream-1 Starting 
+ Container tickstream-e2e-tickstream-1 Started 
+
+$ docker compose exec postgres psql -U tickstream -d tickstream -c "select symbol, count(*) from trades group by symbol"
+ symbol  | count 
+---------+-------
+ BNBUSDT |   275
+ BTCUSDT |   181
+ ETHUSDT |    23
+ SOLUSDT |   109
+(4 rows)
+
+$ docker compose stop tickstream   (stop_signal SIGINT)
+ Container tickstream-e2e-tickstream-1 Stopped 
+$ docker compose logs tickstream | tail -6
+[2026-10-04 06:02:43.713] [info] connected
+[2026-10-04 06:03:27.472] [info] received signal 2, shutting down (press Ctrl+C again to force)
+[2026-10-04 06:03:27.472] [info] stopping feed client
+[2026-10-04 06:03:28.214] [info] connection closed (server skipped TLS close_notify)
+[2026-10-04 06:03:28.214] [info] feed stopped: total=589 gaps=0 missing=0 reconnects=0 unparseable=0 dropped=0 queue_max=40
+[2026-10-04 06:03:28.217] [info] shut down
+$ docker compose ps -a --format "{{.Service}} {{.State}} exit={{.ExitCode}}"
+postgres running exit=0
+tickstream exited exit=0
+ Network tickstream-e2e_default Removed 

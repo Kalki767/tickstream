@@ -1,0 +1,22 @@
+$ docker build --target build -t tickstream:build-stage .
+#14 unpacking to docker.io/library/tickstream:build-stage
+#14 unpacking to docker.io/library/tickstream:build-stage 16.6s done
+#14 DONE 60.6s
+$ docker build -t tickstream:latest .
+#16 unpacking to docker.io/library/tickstream:latest
+#16 unpacking to docker.io/library/tickstream:latest 0.5s done
+#16 DONE 2.5s
+
+$ docker image ls tickstream
+REPOSITORY:TAG           SIZE
+tickstream:latest        139MB
+tickstream:build-stage   1.18GB
+
+$ docker image inspect --format "{{.Size}}" (bytes)
+tickstream:build-stage 1175959283
+tickstream:latest 138953553
+$ docker run --rm tickstream:latest --help | head -3
+usage: tickstream [options] [symbol...]
+
+$ docker image inspect --format "{{.Size}}" ubuntu:24.04   (the base both stages start from)
+ubuntu:24.04 117400818

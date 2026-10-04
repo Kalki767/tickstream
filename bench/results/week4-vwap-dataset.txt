@@ -1,0 +1,18 @@
+# Week 4 dataset: the 36,910-trade capture loaded through the pipeline, then copied in SQL 270 more times.
+# Copy k: trade_id + k*10^10, event_time and received_at + k*900 s (the capture spans 899 s), so the table covers ~68 h of distinct, non-overlapping time.
+$ psql -d tickstream_vwap -f (generate copies; VACUUM ANALYZE)
+Timing is on.
+INSERT 0 9965700
+Time: 184825.565 ms (03:04.826)
+VACUUM
+Time: 16857.750 ms (00:16.858)
+   rows   |            min             |            max             |        span         | table_plus_indexes 
+----------+----------------------------+----------------------------+---------------------+--------------------
+ 10002610 | 2026-10-03 20:40:34.332+03 | 2026-10-06 16:25:32.428+03 | 2 days 19:44:58.096 | 1107 MB
+(1 row)
+
+Time: 2752.492 ms (00:02.752)
+
+real	3m24.513s
+user	0m0.062s
+sys	0m0.012s
