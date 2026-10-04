@@ -1,11 +1,13 @@
 #pragma once
 
+#include <cstdint>
 #include <functional>
 #include <memory>
 #include <string>
 #include <string_view>
 
-#include <boost/asio/io_context.hpp>
+#include <boost/asio/any_io_executor.hpp>
+#include <boost/asio/awaitable.hpp>
 #include <boost/asio/ip/tcp.hpp>
 #include <boost/asio/ssl/context.hpp>
 #include <boost/asio/steady_timer.hpp>
@@ -31,15 +33,18 @@ struct FeedConfig {
 // TLS, WebSocket handshake, read error, idle timeout, server close) it waits
 // according to an exponential Backoff and reconnects from scratch.
 //
-// Threading: everything runs on the one thread that calls io_context::run().
-// All handlers therefore run one at a time, so no member needs a lock, and
-// handlers can safely capture `this` because the client is created before
-// run() and destroyed after it returns.
+// run() is a C++20 coroutine: one loop of resolve -> TCP -> TLS -> WebSocket
+// -> read, with a single catch per connection attempt instead of one error
+// check per completion handler.
+//
+// Threading: run() and stop() must execute on the same single-threaded
+// executor. Every access to the members happens between co_await points on
+// that thread, so no member needs a lock.
 class FeedClient {
 public:
     using MessageHandler = std::function<void(std::string_view)>;
 
-    FeedClient(boost::asio::io_context& ioc,
+    FeedClient(boost::asio::any_io_executor executor,
                boost::asio::ssl::context& ssl_ctx,
                FeedConfig config,
                MessageHandler on_message);
@@ -47,35 +52,28 @@ public:
     FeedClient(const FeedClient&) = delete;
     FeedClient& operator=(const FeedClient&) = delete;
 
-    // Starts the first connection attempt. Returns immediately.
-    void start();
+    // Connects and reads until stop() is called, reconnecting with backoff
+    // after every failure. Start it with boost::asio::co_spawn. The client
+    // must outlive the coroutine.
+    boost::asio::awaitable<void> run();
 
     // Requests a graceful shutdown: sends a WebSocket close frame if connected,
     // otherwise aborts whatever step is in progress. No reconnect happens
-    // after this. io_context::run() returns once the close completes.
+    // after this. run() completes once the current operation unwinds.
     void stop();
+
+    // Connection attempts that failed or dropped and were retried. Read it on
+    // the executor thread.
+    [[nodiscard]] std::uint64_t reconnects() const noexcept { return reconnects_; }
 
 private:
     using WsStream = boost::beast::websocket::stream<
         boost::beast::ssl_stream<boost::beast::tcp_stream>>;
 
-    // The connection pipeline. Each step starts an async operation whose
-    // completion handler is the next step.
-    void connect();
-    void on_resolve(boost::beast::error_code ec,
-                    boost::asio::ip::tcp::resolver::results_type results);
-    void on_tcp_connect(boost::beast::error_code ec);
-    void on_tls_handshake(boost::beast::error_code ec);
-    void on_ws_handshake(boost::beast::error_code ec);
-    void read_next();
-    void on_read(boost::beast::error_code ec, std::size_t bytes);
-    void on_close(boost::beast::error_code ec);
+    // Sends the close frame and waits (bounded by kCloseTimeout) for the reply.
+    boost::asio::awaitable<void> close_gracefully();
 
-    // Logs the failure and schedules a reconnect (unless we are stopping).
-    void fail(boost::beast::error_code ec, std::string_view step);
-    void schedule_reconnect();
-
-    boost::asio::io_context& ioc_;
+    boost::asio::any_io_executor executor_;
     boost::asio::ssl::context& ssl_ctx_;
     const FeedConfig config_;
     const std::string host_header_;  // "host:port", sent in the HTTP Upgrade request
@@ -92,6 +90,8 @@ private:
     boost::beast::flat_buffer buffer_;
 
     bool stopping_ = false;
+    bool close_started_ = false;  // close_gracefully() owns ws_ until it completes
+    std::uint64_t reconnects_ = 0;
 };
 
 }  // namespace tickstream
